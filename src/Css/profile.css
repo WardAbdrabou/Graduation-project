@@ -1,0 +1,98 @@
+.img-profile{
+    height: 30vh;
+    width: 100%;
+}
+.avatar{
+    /* background-image: url(../assests/avatar.jpg); */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 100px;
+    margin-top: -60px;
+}
+.infoprofile{
+    margin-top: 20px;
+}
+@media(min-width:768px){
+    .infoprofile{
+           margin-left: 140px;
+    } 
+}
+@media(max-width:768px) and (max-width : 992px){
+    .avatar{
+        text-align: center !important;
+        left: 0;
+        transform: translate(-60%,0);
+
+    } 
+    .infoprofile{
+        text-align: center !important;
+        margin-right: 20px;
+    }
+    .profile-content{
+        display: block !important;
+        text-align: center;
+        margin-left: 15px;
+    }
+    .content{
+        width: 100px !important;
+        left: 0;
+        transform: translate(-245%,0);
+    }
+}
+.btnfollow{
+    outline: none;
+    border: none;
+    padding: 7px 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    width: fit-content !important;
+    border-radius: 10px;
+    background-color: var( --main-color);
+    margin-top: 20px;
+    text-decoration: none;
+    margin-right: 70px;
+}
+.btnfollow:hover{
+   
+    color: var( --main-color);
+    border: 1px solid  var(--main-color);
+}
+
+.btn-newpost{
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var( --main-color);
+    margin-top: 20px;
+    margin-right: 25px;
+    padding:  5px 10px;
+    border-radius: 10px;
+
+}
+
+.input-post{
+    border: none !important;
+
+}
+.post-card{
+    margin-left: 250px;
+    width: 800px !important;
+}
+@media(max-width:992px){
+    .post-card{
+        width: 490px !important;
+    }
+    .comment{
+        width: 450px !important;
+    }
+}
+/* popup */
+/* popup */
+/* Add Question page */
+
+
+/* Add Question page */

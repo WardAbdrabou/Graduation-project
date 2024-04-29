@@ -1,0 +1,36 @@
+button {
+    width: 120px;
+    height: 40px;
+    background-color: #6F9A61;
+    font-weight: bold;
+    border-radius: 12px;
+    border: 1px solid #6F9A61;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 16px;
+    text-transform: uppercase;
+}
+
+button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+button a:hover {
+
+    color: #6F9A61;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+button:hover {
+
+    color: #6F9A61;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+.blog{
+    border: 2px solid #ddd;
+    width: 282px;
+    border-radius: 15px 15px 0 0;
+}
