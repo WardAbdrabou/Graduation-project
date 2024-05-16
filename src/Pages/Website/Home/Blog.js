@@ -6,7 +6,8 @@ function Blog(props) {
     return (
          <>
          <div className="cards">
-         <div className='box'>
+            <div className="">
+            <div className='box'>
                    <img src={blog.image}  alt="img" /> 
                     <div className="content">
                          <h3 className="limitnumberh">
@@ -20,6 +21,9 @@ function Blog(props) {
                          <i className="fas fa-long-arrow-alt-right"></i>
                      </div> }
                  </div> 
+
+            </div>
+         
 
          </div>
         

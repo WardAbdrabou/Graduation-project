@@ -20,7 +20,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <h2 className="linkHeader" style={{ fontWeight: 'bold' }}>Our Links</h2>
-                        <ul style={{ listStyle: 'none', marginLeft: '34px' }}>
+                        <ul style={{ listStyle: 'none', marginLeft: '-25px' }}>
                             <li>  <Link to="/home" style={{ textDecoration: 'none', color: '#fff', fontSize: '17px', lineHeight: '2px' }}>Home</Link></li>
                             <li>  <Link to="/service" style={{ textDecoration: 'none', color: '#fff', fontSize: '17px', lineHeight: '2px' }}>Service</Link></li>
                             <li>  <Link to="/community" style={{ textDecoration: 'none', color: '#fff', fontSize: '17px', lineHeight: '2px' }}>Community</Link></li>
@@ -30,7 +30,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <h2 style={{ fontWeight: 'bold' }}>Our Service</h2>
-                        <ul style={{ listStyle: 'none', marginLeft: '30px' }}>
+                        <ul style={{ listStyle: 'none', marginLeft: '-25px' }}>
                             <li style={{ textDecoration: 'none' }}>  <Link to="/home" style={{ textDecoration: 'none', color: '#fff', fontSize: '19px', lineHeight: '2px' }}>Soil Detection</Link></li>
                             <li>  <Link to="/home" style={{ textDecoration: 'none', color: '#fff', fontSize: '17px', lineHeight: '2px' }}>Plant Disease</Link></li>
                             <li>  <Link to="/home" style={{ textDecoration: 'none', color: '#fff', fontSize: '17px', lineHeight: '2px' }}>consultation</Link></li>

@@ -53,7 +53,7 @@ export default function PlantDetection() {
             const res = await Axios.post(`http://127.0.0.1:5000/api`, form);
             console.log(res.data.soilname);
             setLoading(false);
-            //   window.location.pathname = "/diseases/disease";
+              window.location.pathname = "/diseases/disease";
         } catch (err) {
             setLoading(false);
             console.log(err);
@@ -75,15 +75,14 @@ export default function PlantDetection() {
                     <div >
                         <br/>
                         <div>
-                           
                         <input
                         placeholder="Enter Common Name"
                         className="searchDiseases"
                         onChange={(event) => setSearch(event.target.value)}
                     /> 
-                    <div style={{marginLeft:"-550px",marginTop:"-45px" , color:"rgba(208, 197, 197, 1)"}}>
+                    {/* <div style={{marginLeft:"-550px",marginTop:"-45px" , color:"rgba(208, 197, 197, 1)"}}> */}
                     {/* <FontAwesomeIcon icon={faMagnifyingGlass}  className="iconsearch"/> */}
-                    </div>
+                    {/* </div> */}
                         </div>
                         <div className="text-center mt-5">
                             <input className="image-upload" onChange={(e) => setfileup(e.target.files.item(0))}

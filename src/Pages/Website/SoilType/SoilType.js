@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import vector from "./../../../assests/Vector.png"
 
 // import './GrowingTips.css';
 
@@ -9,7 +10,6 @@ import { Axios } from './../../../Api/axios';
 // import { Grow , baseURL } from './../../Api/Api';
 import SoilTypeList from "./SoilTypeList";
 import soilType from './../../../assests/plant-leaf 1.png';
-import { Navbar } from "react-bootstrap";
 import NavBar from "../../../Components/NavBar";
 import Footer from "../Home/Footer";
 
@@ -37,16 +37,27 @@ function SoilType() {
     return (
       <>
       <NavBar></NavBar>
-      <div className="text-center" style={{width:'100%',backgroundColor:'rgba(238, 238, 238, 0.5)'}}>
-          <img src={soilType} alt='not found'style={{marginTop:'40px'}}/>
-          <p style={{ color: "#6F9A61", fontSize: "44px",fontWeight:'bold'}}>Identify Soil For Free</p>
-          <p style={{ color: "black", fontSize: "30px"}}>You Can Take a photo or search by soil name</p>
-          <input placeholder="Enter Common Name"  onChange={event => setSearch(event.target.value)}style={{width:'50%',marginBottom:'40px',borderRadius:'50px'}} />
+      <div className="sec2det text-center">
+                    <img className="img-diseases" alt='not found' src={soilType}></img>
+                    <img className="img-diseases vec" src={vector}></img>
+          {/* <img src={soilType} alt='not found'style={{marginTop:'40px'}}/> */}
+          <p  className="main-title-diseases">Identify Soil For Free</p>
+          <p className="main-titlep-diseases">You Can Take a photo or search by soil name</p>
+          <br/>
+          <input placeholder="Enter Common Name"  onChange={event => setSearch(event.target.value)} className="searchDiseases"/>
+          <br/>
       </div>
+      {/* <div className="text-center mt-5">
+                            <input className="image-upload" onChange={(e) => setfileup(e.target.files.item(0))}
+                                type="file" />
+                            <button type="submit" className="btn-upload" onClick={HandleSubmit}>predict</button>
+
+                        
+                        </div> */}
 
      <div className="cards">
-     <h2 className="text-center" style={{ color: "#6F9A61", fontSize: "55px", paddingTop: '30px' }}>Soil Type</h2>
-            <p className="text-center " style={{ fontSize: "15px" ,marginBottom:'55px'}}>Include Information on soil conditions, watering frequency, and other factors</p>
+     <h2 className="main-title text-center" >Soil Type</h2>
+            <p className="main-titlep">Include Information on soil conditions, watering frequency, and other factors</p>
        
         <div className='container'>
           {Soil &&
