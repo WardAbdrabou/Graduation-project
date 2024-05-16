@@ -17,7 +17,8 @@ export default function ConsultationProfile() {
     const params = useParams();
 
  
-  const [dataprofile, setProfiles] = useState([]);
+  const [dataprofile, setdataprofile] = useState([]);
+  const [Profiles, setProfiles] = useState([]);
   const [Questions, setQuestions] = useState([]);
   const nav = useNavigate();
 
@@ -28,6 +29,8 @@ export default function ConsultationProfile() {
   useEffect(() => {
     Axios.get(`/${CONSUL}/${params.consID}`)
       .then((dataprofile) => {
+
+        setdataprofile(dataprofile.data.instructor)
         setProfiles(dataprofile.data.instructor)
         setQuestions(dataprofile.data.instructor.posts)
 
@@ -43,11 +46,10 @@ export default function ConsultationProfile() {
         <img src={background} alt='background' className='img-profile' />
         <div className="d-flex align-items-center justify-content-between">
           <div>
-            {/* <img src={dataprofile.thumbnail} alt="img" className='avatar'/> */}
-            <img src={avatar} alt="img" className='avatar' />
+            <img src={Profiles.thumbnail} alt="img" className='avatar'/>
             <div className='infoprofile'>
-              <h4 style={{ fontWeight: "bold" }}>{dataprofile.name}</h4>
-              <p>{dataprofile.email}</p>
+              <h4 style={{ fontWeight: "bold" }}>{Profiles.name}</h4>
+              <p>{Profiles.email}</p>
             </div>
           </div>
           <div >
@@ -57,9 +59,9 @@ export default function ConsultationProfile() {
             </Link>
             <Link to={`/allchats/${dataprofile.id}`} className="btn-newpost">
             <FontAwesomeIcon icon={faMessage} /></Link>
-            <Link  className="btn-newpost" onClick={() => setModalShow(true)}>
+            {/* <Link  className="btn-newpost" onClick={() => setModalShow(true)}>
               <FontAwesomeIcon icon={faPlus} />
-            </Link>
+            </Link> */}
             <button className="btnfollow">Follow</button>
           </div>
         </div>

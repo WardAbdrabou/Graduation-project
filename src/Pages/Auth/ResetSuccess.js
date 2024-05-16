@@ -5,14 +5,14 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 const ResetSuccess = () => {
   // localStorage.removeItem('email');
-  localStorage.setItem('userID');
+  // localStorage.setItem('userID');
 
   return (
     <div>
       <NavBar></NavBar>
       <div className="parent">
         <div className="register login">
-          <form >
+          <form className='form'>
             <div>
               <div style={{ textAlign: "center" }}>
               <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#6F9A61", fontSize:"80px"}} className='mb-4'/>

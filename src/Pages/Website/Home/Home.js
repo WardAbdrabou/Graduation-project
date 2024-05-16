@@ -1,27 +1,44 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import chooseus from '../../../assests/Chooseus.png';
-import { Link } from 'react-router-dom';
+import { Link , Navigate } from 'react-router-dom';
 import  './Home.css';
 import Blog from "./Blog";
 
-import { baseURL } from './../../../Api/Api';
 import { Axios } from "../../../Api/axios";
 import NavBar from "../../../Components/NavBar";
 import Footer from "./Footer";
-
-
-
+import Cookie from 'cookie-universal';
 
 function Home  ()  {
   
+  const cookie = Cookie();
+  const token = cookie.get("e-commerce");
+  
    const[blogs, setBlogs] = useState([]);
-
-   useEffect(() => {
-    Axios.get(`${baseURL}/blogs`)
-        .then((data) => setBlogs(data.data.blogs));
+   
+   async function fetchData() {
+    try {
+        if (!token) {
+            return;
+        }
+        Axios.get(`/blogs`)
+        .then((data) => setBlogs(data.data.blogs))     
+        .catch(() => Navigate("/login", {replace: true}));
         
+    } catch (error) {
+        console.log(error);
+    }
+}
+useEffect(() => {
+    fetchData();
 }, []);
+
+//    useEffect(() => {
+//     Axios.get(`${baseURL}/blogs`)
+//         .then((data) => setBlogs(data.data.blogs));
+        
+// }, []);
 
 
 
@@ -30,7 +47,7 @@ function Home  ()  {
     <NavBar></NavBar>
       <Header />
       <section className="chosse us">
-        <h2 className="text-center "
+        <h2 className="text-center plantDetDessec "
           style={{ color: "#6F9A61", fontSize: "55px", paddingTop: '50px' }}>
           Why Choose Us
         </h2>
@@ -56,13 +73,13 @@ function Home  ()  {
 
       </section>
       <section className="ourBlog" >
-         <h2 className="head" style={{color:'#6F9A61', fontSize:'50px',paddingTop:'30px',display:'flex',justifyContent:'center'}}>Our Blogs</h2>
+         <h2 className="head plantDetDessec" style={{color:'#6F9A61', fontSize:'50px',paddingTop:'30px',display:'flex',justifyContent:'center'}}>Our Blogs</h2>
 
          <div className="blog-container" style={{marginTop:'65px',width:'75%',display:'flex',marginLeft:'184px'}}>
           <div className="row">
             {blogs.map((blog)=>{
               return(
-                <div className="col-4" key={blog.id} style={{marginBottom:'160px'}}>
+                <div className="col-4" key={blog.id} >
                     <Blog  blog={blog}/>
                 </div>
               )

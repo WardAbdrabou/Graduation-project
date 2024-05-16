@@ -11,6 +11,7 @@ import SoilTypeList from "./SoilTypeList";
 import soilType from './../../../assests/plant-leaf 1.png';
 import { Navbar } from "react-bootstrap";
 import NavBar from "../../../Components/NavBar";
+import Footer from "../Home/Footer";
 
 // import { useParams } from "react-router-dom";
 
@@ -43,19 +44,11 @@ function SoilType() {
           <input placeholder="Enter Common Name"  onChange={event => setSearch(event.target.value)}style={{width:'50%',marginBottom:'40px',borderRadius:'50px'}} />
       </div>
 
-     <div className="container">
+     <div className="cards">
      <h2 className="text-center" style={{ color: "#6F9A61", fontSize: "55px", paddingTop: '30px' }}>Soil Type</h2>
             <p className="text-center " style={{ fontSize: "15px" ,marginBottom:'55px'}}>Include Information on soil conditions, watering frequency, and other factors</p>
        
-        <div className="row">
-          {/* {Soil.map((soil) => {
-            return (
-              <div className="col-md-4  " key={soil.id} style={{ marginTop: '20px' }}>
-                <SoilTypeList soil={soil} />
-              </div>
-            );
-          })} */}
-
+        <div className='container'>
           {Soil &&
            Soil.filter(soil => {
             if (search === '') {
@@ -65,14 +58,17 @@ function SoilType() {
             }
             }).map((soil, index) => {
             return (
+              
                 <div key={soil.id}>
                 <SoilTypeList soil={soil}  />
                  </div>
             );})}
+           
         </div>
       </div>
 
-      
+      <Footer></Footer>
+
       </>
 
     )

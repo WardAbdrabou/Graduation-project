@@ -4,8 +4,6 @@ import Loading from '../../Components/Loading';
 
 import { Axios } from '../../Api/axios';
 import NavBar from '../../Components/NavBar';
-// import axios from 'axios';
-// import { useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
   const [err, setErr] = useState("");
@@ -47,9 +45,9 @@ const ResetPassword = () => {
     <div>
       <NavBar></NavBar>
       {loading && <Loading></Loading>}
-      <div className="parent">
+      <div className="parent verify">
         <div className="register login">
-          <form onSubmit={handleResetSubmit}>
+          <form onSubmit={handleResetSubmit} className='form'>
             <div>
               <div style={{ textAlign: "center" }}>
                 <h4 style={{ marginBottom: "20px" }}>Reset Password</h4>

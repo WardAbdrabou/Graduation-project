@@ -12,8 +12,10 @@ const Header = () => {
           <h3>Original & Natural</h3>
           <h1>Agriculture Matter</h1>
           <h2>Good Production</h2>
-          <h5>Dissuade ecstatic and properly saw entirely sir why laughter endeavar.
-            In an my hointure harrible margaret suitable he speedily
+          <h5>AgriGuide is web developed to identify the type of 
+soil effectively, suggest the appropriate crop for the type of soil, determine the 
+appropriate amount of water that we need for the soil, and discover if there is a 
+disease in the plant.
           </h5>
           <button><Link to="/service">Service</Link></button>
 

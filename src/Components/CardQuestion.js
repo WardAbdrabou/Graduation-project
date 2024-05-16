@@ -172,7 +172,7 @@ export default function CardQuestion(props) {
                                                 <div>
                                                     <div className="d-flex justify-content-between align-items-center">
                                                         <p className="mb-1">
-                                                        {comment.name}{" "}nnnnnnnnnnn
+                                                        {comment.name}{" "}Ward
                                                             {/* <span className="small">- 2 hours ago</span> */}
                                                         </p>
                                                         <a href="#!">
@@ -206,8 +206,8 @@ export default function CardQuestion(props) {
                         <Modal.Header closeButton>
                             <Modal.Title id="contained-modal-title-vcenter d-flex">
                                 <div class="top d-flex align-center ">
-                                    {/* <img class="avatar mr-15" src={post.image} alt="" /> */}
-                                    <img src={avatar} alt="img" class="avatar-post mr-15" style={{ width: "80px", height: "80px", borderRadius: "50px" }} />
+                                    <img class="avatar-post mr-15" src={dataprofile.thumbnail} alt="" style={{ width: "80px", height: "80px", borderRadius: "50px" }}/>
+                                    {/* <img src={avatar} alt="img" class="avatar-post mr-15" style={{ width: "80px", height: "80px", borderRadius: "50px" }} /> */}
                                     <div class="info">
                                         <span class="d-block fw-bold">{dataprofile.name}</span>
                                     </div>
@@ -252,7 +252,7 @@ export default function CardQuestion(props) {
                                                 <div>
                                                     <div className="d-flex justify-content-between align-items-center">
                                                         <p className="mb-1">
-                                                        {comment.name}{" "}nnn
+                                                        {comment.name}{" "}Ward
                                                             {/* <span className="small">- 2 hours ago</span> */}
                                                         </p>
                                                         <a href="#!">

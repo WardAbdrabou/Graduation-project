@@ -5,8 +5,15 @@
     margin-left: auto;
     margin-right: auto;
 }
+.logo{
+    border-radius: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 75px;
+    height: 75px;
+}
 .main-title{
-    /* border: 1px solid var(--greenTrans-color); */
+    border: 1px solid var(--greenTrans-color);
     z-index: 1;
     transition: var(--main-transition);
     border-radius: 10px;
@@ -223,6 +230,8 @@
     width: 600px;
     border-radius: 50px;
     margin-bottom: 10px;
+    z-index: -1;
+    background-color: rgba(255, 255, 255, 1) ;
 }
 @media(max-width:768px){
     .searchDiseases{
@@ -283,8 +292,9 @@
 .cards .box{
     box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
     background-color: white;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    /* border-top-right-radius: 25px;
+    border-top-left-radius: 25px; */
+    border-radius: 25px;
     overflow: hidden;
     transition: transform var(--main-transition) , box-shadow var(--main-transition);
 }
@@ -314,7 +324,7 @@
 }
 .cards .box .infoPlant{
     padding: 20px ;
-    border-top:  1px solid #e6e6e7;
+    border-top:1px solid #e6e6e7;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -452,11 +462,13 @@
     cursor: pointer;
     text-align: center;
     padding: 10px;
-    width: 150px;
+    width: 120px;
     margin: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
-    transition: 0.3s;
+    transition: 0.1s;
+    text-transform: capitalize;
+
 }
 .btn-catog:hover{
     /* background-color: var(--greenTrans-color); */
@@ -467,11 +479,20 @@
     background-color: var(--main-color);
     color: white;
 }
+.active{
+    background-color: var(--main-color) ;
+}
 .search{
-    width: 940px;
-    margin-left: 300px;
+    width: 800px;
+    /* margin-left: 300px; */
+    margin-left: 340px;
     border-radius: 50px;
     margin-bottom: 60px;
+    background-color: rgba(238, 238, 238, 0.5);
+}
+.iconsearch:focus{
+    visibility: hidden;
+
 }
 @media(max-width:768px){
     .catogries{
@@ -518,6 +539,18 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
   }
+  /* .search::placeholder{
+    position: absolute;
+    left: 40px;
+    bottom: 13px;
+    cursor: none;
+  } */
+  /* .iconsearch:focus{
+   visibility: hidden !important;
+   display: none !important;
+   color: #6F9A61;
+    
+  } */
   /* Plant Detials And Diseases */
   .plantDetDes{
     font-size: 64px;
@@ -695,7 +728,7 @@
     border: 200px solid;
     border-color: transparent var(--main-color) transparent transparent;
     left: -200px;
-    top: -130px;
+    top: -108px;
     transform: rotate(45deg);
 }
 
@@ -937,7 +970,44 @@
 }
 /*End About Us */
 /* chat */
-.message-chat{
-    height: 100px;
+.chat{
+    background-color: #eee;
+    height: 75vh !important;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.message{
+    /* align-items: end !important;
+    justify-items: flex-end !important;
+ */
+
+}.message-chat{
+    /* height: 35.1vh; */
+    padding-top: 30px;
+    
+}
+.message-div-left{
+    margin-top: 10px;
+    background-color: rgba(111, 154, 97, 1);
+    color: white;
+    width: fit-content ;
+    height: fit-content ;
+    padding: 10px 20px;
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+    border-bottom-left-radius: 25px; 
+    border-bottom-right-radius: none !important;
+}
+.message-div-right{
+    background-color:white;
+    width: fit-content ;
+    height: fit-content ;
+    padding: 10px 20px;
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+    border-bottom-right-radius: 25px; 
+    border-bottom-left-radius: none !important;
+    /* margin-top: 0 !important; */
+
 }
 /* chat */

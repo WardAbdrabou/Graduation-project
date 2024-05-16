@@ -13,11 +13,12 @@ export default function SideBar() {
 
     return (
         <>
+        <div className="side-bar">
         <div  style={{
                     position: 'fixed', top: "70px", left: '0', width: '100%', height: "100vh", backgroundColor: "rgba(0,0,0,0.2)",
-                    display: windowSize < '768' && isOpen ? 'block' : 'none',                }}>
+                    display: windowSize < '768' && isOpen ? 'block' : 'none',             }}>
         </div>
-                <div className="side-bar" style={{
+                <div  style={{
                     backgroundColor: "#fff",
                 left: windowSize < "768" ? ( isOpen ? 0 : "-100%") : 0,
                 width: isOpen ? "240px" : "fit-content",
@@ -37,6 +38,9 @@ export default function SideBar() {
                         }}>New Post</p> </NavLink>
                 </div>
 
+
+        </div>
+       
     </>
     );
 }

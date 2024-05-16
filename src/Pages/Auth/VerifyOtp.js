@@ -8,18 +8,14 @@ import { SENDdEMAILVERIFI, VERIFYOTP } from '../../Api/Api';
 const VerifyOtp = (setOtpVerified) => {
     const [otp, setOtp] = useState('');
     const [accept, setAccept] = useState(false);
-
     const [err, setErr] = useState("");
     const [loading, setLoading] = useState(false);
-
     const email =  localStorage.getItem('email');
     // console.log(email);
-
     //token
     const cookie = Cookie();
     const token = cookie.get("e-commerce");
     // console.log(token);
-
     const handleResend = async (e) => {
         setLoading(true);
         // if (disable) return;
@@ -69,17 +65,14 @@ const VerifyOtp = (setOtpVerified) => {
                 setAccept(true);
             }
         }
-    
 };
-
 return (
     <>
         {loading && <Loading></Loading>}
         
-        <div className="parent ">
+        <div className="parent verify">
             <div className="register login">
-
-                <form onSubmit={handleOtpSubmit}>
+                <form onSubmit={handleOtpSubmit} className='form'>
                     <div>
                         <div style={{ textAlign: "center" }}>
                             <h4 style={{ marginBottom: "30px" }}>Verify OTP</h4>

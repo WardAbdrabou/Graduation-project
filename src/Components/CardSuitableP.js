@@ -5,8 +5,8 @@ import { AllSUITABLEPLANTS, PLANT } from "../Api/Api";
 export default function CardSuitableP(props) {
     const { suitablePlant ,showButton } = props;
     return (        
-                <div className='box'>
-                    <img src={suitablePlant.image}  alt="img"/> 
+                <div className='box mt-5'>
+                    <img src={suitablePlant.image}  alt="img" className="img"/> 
                     <div className="content">
                         <h3 className="limitnumberh" style={{fontWeight:"bold"}}>
                             {suitablePlant.name}

@@ -77,8 +77,6 @@
 /* side bar  */
 .side-bar{
     margin-top: 0;
-    left: 0;
-    z-index: 1;
     height: 100vh;
     border-right: 1px solid rgba(0,0,0,0.1);
     padding: auto;
@@ -108,6 +106,7 @@
     border-radius: 12px;
     color: white;
 }
+
 .active i{
     color: white;
 }

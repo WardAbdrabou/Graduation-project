@@ -6,13 +6,13 @@ import NavBar from "../../Components/NavBar";
 import { Axios } from "../../Api/axios";
 import Footer from "./Home/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 
 export default function PlantDetalis() {
     const [suitablePlants, setsuitablePlants] = useState([]);
     const [categories, setCategories] = useState([]);
     const [search, setSearch] = useState("");
-  
+
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages] = useState(6);
 
@@ -28,10 +28,11 @@ export default function PlantDetalis() {
 
     const getPlants = () => {
         Axios.get(`/${AllSUITABLEPLANTS}?page=${currentPage}`)
-            .then((data) => {setsuitablePlants(data.data.crops.data)
+            .then((data) => {
+                setsuitablePlants(data.data.crops.data)
                 // console.log(data.data.crops.data)
-                
-                });
+
+            });
     }
     //Get Catogries in panigation
     const getAllCategoriesPlants = () => {
@@ -56,29 +57,34 @@ export default function PlantDetalis() {
 
     return (
         <>
-        <NavBar></NavBar>
+            <NavBar></NavBar>
             <div >
                 <div className="cards" id="cards">
                     <h2 className="main-title text-center"> Suitable Plant</h2>
-                    <p className="main-titlep limitnumbersuitable text-center">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                    <p className="main-titlep limitnumbersuitable text-center"> you Can know what type of your plants suitable for planting in your soil </p>
                     {/* <Search></Search> */}
                     <div>
                         <div className="catogries">
-                            <button onClick={() => {
+                            {/* <button onClick={() => {
                                 getPlants();
-                            }} className="btn-catog"> All</button>
+                            }} className="btn-catog"> All</button> */}
                             {
                                 categories.map((cat) => {
                                     return <button key={cat} onClick={() => {
                                         getPlantsInCategory(cat)
-                                    }} className="btn-catog">{cat}</button>
+                                    }} className="btn-catog">{cat} Soil</button>
                                 })
                             }
                         </div>
                         <br />
-                        <input placeholder="Enter your Plant" className="search" onChange={event => setSearch(event.target.value)} /><br /> 
-                        <div className="container">
-                            
+                        <div>
+                            <input placeholder="Enter your Plant" className="search" onChange={event => setSearch(event.target.value)} type="text"/><br />
+                            <div style={{ marginLeft: "320px", marginTop:"-95px",color: "rgba(208, 197, 197, 1)" }}>
+                                {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="iconsearch" /> */}
+                            </div>
+                        </div>
+                        <div className="container mt-5">
+
                             {suitablePlants &&
                                 suitablePlants.filter(suitablePlant => {
                                     if (search === '') {
@@ -89,7 +95,7 @@ export default function PlantDetalis() {
                                 }).map((suitablePlant, index) => {
                                     return (
                                         <div key={suitablePlant.id}>
-                                            <CardSuitableP suitablePlant={suitablePlant}  showButton={true}/>
+                                            <CardSuitableP suitablePlant={suitablePlant} showButton={true} />
                                         </div>
 
                                     );
@@ -98,13 +104,13 @@ export default function PlantDetalis() {
                         </div>
                     </div>
                     <div className="text-center mt-5">
-                                <button className="btn-pagination" onClick={handlePrevPage} disabled={currentPage === 1}><FontAwesomeIcon icon={faAngleLeft} /></button>
-                                <span>{currentPage} - {totalPages}</span>
-                                <button className="btn-pagination" onClick={handleNextPage} disabled={currentPage === totalPages}>
-                                    <FontAwesomeIcon icon={faAngleRight} />
-                                </button>
+                        <button className="btn-pagination" onClick={handlePrevPage} disabled={currentPage === 1}><FontAwesomeIcon icon={faAngleLeft} /></button>
+                        <span>{currentPage} - {totalPages}</span>
+                        <button className="btn-pagination" onClick={handleNextPage} disabled={currentPage === totalPages}>
+                            <FontAwesomeIcon icon={faAngleRight} />
+                        </button>
 
-                            </div>
+                    </div>
 
                 </div>
             </div>

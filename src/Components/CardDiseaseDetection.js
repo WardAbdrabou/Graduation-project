@@ -6,7 +6,7 @@ export default function CardDiseasesDetection(props) {
     const { PlantDisease ,showButton } = props;
     return (        
                 <div className='box'>
-                    <img src={PlantDisease.image}  alt="img" className=""/> 
+                    <img src={PlantDisease.image}  alt="img" /> 
                     <div className="content">
                         <h3 className="limitnumberh">
                             {PlantDisease.name}

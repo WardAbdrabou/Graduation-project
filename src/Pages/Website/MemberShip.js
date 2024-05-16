@@ -56,7 +56,7 @@ export default function MemberShip() {
                                             <span class="amount">{price[0]}</span>                                            
                                             <span class="time"> {price[1]}</span>
                                         </div>
-                                        <div className="text-center">
+                                        <div className="text-center" style={{marginLeft:"-30px"}}>
                                         <Link to={`/membership/${memberShip.id}`} style={{background:"none", border:"none"}}>
                                         <a href="">Buy Now</a>
                                         </Link>

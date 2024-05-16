@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { Axios } from './../../../Api/axios';
 import NavBar from "../../../Components/NavBar";
+import Footer from "../Home/Footer";
 
 
 
@@ -33,6 +34,7 @@ function SoilTypeDetails(soilTypeId) {
 
     return (
         <>
+        <NavBar></NavBar>
             {/* new */}
             <div className="heading">
                 <h1>Soil Details</h1>
@@ -42,7 +44,7 @@ function SoilTypeDetails(soilTypeId) {
             <div className="about-container">
                 <div className="row">
                     <div className="col-md-6">
-                        {/* <img src={aboutUs} alt="chosse us" style={{ width: '100%' }} /> */}
+                        <img src={Soil.image} alt="chosse us" style={{ width: '100%' }} />
                     </div>
                     <div className="col-md-6" style={{ paddingTop: '8px' }} >
                        
@@ -75,7 +77,7 @@ function SoilTypeDetails(soilTypeId) {
                 </div>
 
 
-          
+          <Footer></Footer>
 
         </>
     )

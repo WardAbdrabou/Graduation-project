@@ -47,37 +47,40 @@ export default function Conversation(){
         <>
         {loading && <Loading></Loading>}
         <NavBar></NavBar>
+        <div style={{backgroundColor:"#eee" , height:"90vh"}}>
         <HeaderName></HeaderName>
-        <MDBCol  className="m-2" style={{backgroundColor:"#eee" }}>
-          <MDBTypography listUnStyled className="m-2">
+
+        <div  className="chat">
+
+          <div listUnStyled className="m-2 mt-2">
           {showsmessages.map((showmessage) => {
-            
               return (
                 <>
                 { showmessage['sent by authenticated user'] === false ? <>
+                
                 <div className="message-chat">  
-          <li class=" d-flex flex-row justify-content-start">
-            <MDBCard>
-              <MDBCardBody>
-                <p className="mb-0">
+          <li class=" d-flex flex-row justify-content-start message" >
+            <div className="message-div-right">
+              {/* <MDBCardBody> */}
+                <p className="mb-0" >
                 {showmessage.message}
                 </p>
-              </MDBCardBody>
-            </MDBCard>
+              {/* </MDBCardBody> */}
+            </div>
   
           </li>
             </div>
                 
                 </>  : <>
-                <div className="message-chat">  
-          <li class=" d-flex flex-row justify-content-end">
-            <MDBCard >
-              <MDBCardBody>
+                <div className="message-chat" >  
+          <li class=" d-flex flex-row justify-content-end align-items-end" >
+            <div className="message-div-left" >
+              {/* <MDBCardBody> */}
                 <p className="mb-0">
                 {showmessage.message}
                 </p>
-              </MDBCardBody>
-            </MDBCard>
+              {/* </MDBCardBody> */}
+            </div>
   
           </li>
             </div>
@@ -88,13 +91,13 @@ export default function Conversation(){
                 
               
           )})}
-          <form className='mx-2 p-3 d-flex justify-content-center align-items-center' onSubmit={HandleSubmit} >
-              <div class=" txt-c-mobile w-100">
+          <form className='d-flex justify-content-center align-items-center' onSubmit={HandleSubmit} style={{position:"fixed" ,width:"98%" , bottom:"0px"}}>
+              <div class="txt-c-mobile w-100" style={{marginTop:"20px"}}>
                 <input
                                     name="message"
                                     id="message"
                                     type="text"
-                                    placeholder="write your message....."
+                                    placeholder="Type a message....."
                                     required
                                     value={sendmessages}
                                     onChange={(e) => setSendMessages(e.target.value)}
@@ -104,12 +107,15 @@ export default function Conversation(){
                 disabled={
                   sendmessages.length > 1 
                     ? false : true
-                    } type='submit' className='btnpost mt-0' style={{marginBottom:"11px" , marginLeft:"-125px"}}>send</button>
+                    } type='submit' className='btnpost' style={{marginBottom:"10px" , marginLeft:"-125px" ,marginTop:"20px"}}>send</button>
             </form>
-            <li className="mb-3 d-flex" style={{zIndex:"-2"}} >
+            <li className="mb-5 d-flex" style={{zIndex:"-2"}} >
             </li>        
-          </MDBTypography>
-        </MDBCol>
+          </div>
+        </div>
+
+        </div>
+      
         </>
     )
 }

@@ -1,7 +1,8 @@
 import React from "react";
-import footerlogo from './../../../assests/logo.png'
+// import footerlogo from './../../../assests/logo.png'
 import { Link } from "react-router-dom";
 import './Footer.css';
+import footerlogo from "./../../../assests/logo3.jpg"
 
 const Footer = () => {
     return (
@@ -9,7 +10,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 col-sm-6">
-                        <img src={footerlogo} alt='logo' />
+                        <img src={footerlogo} alt='logo' className="logo"/>
                         <h2 className="footHeader" style={{ paddingTop: '8px', fontWeight: 'bold' }}>Agri Guide</h2>
                         <p className="footText" style={{ fontSize: '18px' }}>loreem ipssum is dolor iy toi can see <br />it i would help you to
                             Know ekjh nnnnj<br /> tommer hhhaidy as tou like you can see it

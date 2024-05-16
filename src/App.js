@@ -43,10 +43,12 @@ import AddQuestions from "./Pages/Website/Profile/AddQuestions";
 import CardQuestion from "./Components/CardQuestion";
 import Home from "./Pages/Website/Home/Home";
 import AboutUs from "./Pages/Website/aboutUs";
-import GrowingTips from "./Pages/Website/growingtips/GrowingTips";
-import GrowingTipsDetails from "./Pages/Website/growingtips/GrowingTipsDetails";
+// import GrowingTips from "./Pages/Website/growingtips/GrowingTips";
+// import GrowingTipsDetails from "./Pages/Website/growingtips/GrowingTipsDetails";
 import SoilType from "./Pages/Website/SoilType/SoilType";
 import SoilTypeDetails from "./Pages/Website/SoilType/SoilTypeDetails";
+import TipDetalis from "./Pages/Website/TipDetails";
+import GrowingTips from "./Pages/Website/GrowingTips";
 
 function App() {
   return (
@@ -59,24 +61,14 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
         </Route>
-        {/* <Route path="/*" element={<Err404></Err404>}></Route> */}
-        <Route path="/*" element={<Err403></Err403>}></Route>
-        <Route path="/sendotp" element={<SendOtp />}></Route>
-        <Route path="/verifyotp" element={<VerifyOtp />}></Route>
-        <Route
-          path="/verifysuccess"
-          element={<VerifySuccess></VerifySuccess>}
-        ></Route>
-        <Route path="/forgetpassverify" element={<ForgetPassVerify />}></Route>
-        <Route path="/resetpassword" element={<ResetPassword />}></Route>
-        <Route path="/resetsuccess" element={<ResetSuccess />}></Route>
-        {/* <Route path='/Services' element={<Services></Services>}></Route> */}
-        <Route path="/service" element={<Service></Service>}></Route>
+
+         {/* Require Auth page */}
+        <Route element={<RequireAuth allowedRole={[1 , 0]}></RequireAuth>}>
         <Route
           path="/suitableplant"
           element={<SUitablePlant></SUitablePlant>}
         ></Route>
-        <Route
+         <Route
           path="/plantdetection"
           element={<PlantDetection></PlantDetection>}
         ></Route>
@@ -84,10 +76,10 @@ function App() {
           path="/growingtips"
           element={<GrowingTips></GrowingTips>}
         ></Route>
-        <Route
+        {/* <Route
           path="growingtips/:GrowingTipsId"
           element={<GrowingTipsDetails />}
-        />
+        /> */}
         <Route path="/soiltype" element={<SoilType />} />
         <Route path="/soiltype/:soilTypeId" element={<SoilTypeDetails />} />
         <Route path="/profile" element={<Profile></Profile>}>
@@ -121,6 +113,9 @@ function App() {
           path="/allchats/:convID"
           element={<Conversation></Conversation>}
         ></Route>
+                  <Route path='/growingtips' element={<GrowingTips></GrowingTips>}></Route>
+
+          <Route path={`growing_tips/:tipId`} element={<TipDetalis></TipDetalis>}></Route>
 
         {/* <Route path='/plantdiseases' element={<PlantDiseases></PlantDiseases>}></Route> */}
 
@@ -151,6 +146,23 @@ function App() {
           ></Route>
         </Route>
 
+        </Route>
+        {/* <Route path="/*" element={<Err404></Err404>}></Route> */}
+        <Route path="/*" element={<Err403></Err403>}></Route>
+        <Route path="/sendotp" element={<SendOtp />}></Route>
+        <Route path="/verifyotp" element={<VerifyOtp />}></Route>
+        <Route
+          path="/verifysuccess"
+          element={<VerifySuccess></VerifySuccess>}
+        ></Route>
+        <Route path="/forgetpassverify" element={<ForgetPassVerify />}></Route>
+        <Route path="/resetpassword" element={<ResetPassword />}></Route>
+        <Route path="/resetsuccess" element={<ResetSuccess />}></Route>
+        {/* <Route path='/Services' element={<Services></Services>}></Route> */}
+        <Route path="/service" element={<Service></Service>}></Route>
+       
+       
+
         <Route
           element={
             <RequireAuthMember
@@ -172,11 +184,12 @@ function App() {
         <Route element={<RequireAuth allowedRole={[1]}></RequireAuth>}>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}>
             <Route path="posts" element={<Posts></Posts>}></Route>
-            <Route path="posts/edit/:id" element={<Post></Post>}></Route>
             <Route
               path="posts/create_post"
               element={<AddPost></AddPost>}
             ></Route>
+            <Route path="posts/edit/:id" element={<Post></Post>}></Route>
+           
           </Route>
         </Route>
       </Routes>

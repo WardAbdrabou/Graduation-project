@@ -1,7 +1,7 @@
 // import {data} from "../../data";
 import CardDiseases from "../../Components/CardDiseases";
 import { useEffect, useState } from "react";
-import { AllSUITABLEPLANTS, PLANT, PLANTDETALI, baseURL, baseURL2 } from "../../Api/Api";
+import { AllSUITABLEPLANTS, PLANT,  baseURL } from "../../Api/Api";
 import { useParams } from "react-router-dom";
 import NavBar from "../../Components/NavBar";
 import { Axios } from "../../Api/axios";

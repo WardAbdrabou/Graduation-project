@@ -20,16 +20,16 @@ export default function HeaderName(){
   }, []);
   
   return(
-    <MDBCol md="6" lg="5" xl="4">
+    <MDBCol md="6" lg="5" xl="4" >
       <MDBCardBody>
-        <MDBTypography listUnStyled className="mb-0">
+        <MDBTypography listUnStyled className="mb-0" >
           {Conversations.map((Conversation) => {
             return (
-              <div key={Conversation.id}>
-                <li className="p-2">
-                      <div className="d-flex flex-row">
+              <div key={Conversation.id} >
+                <li >
+                      <div className="d-flex flex-row" >
                        
-                        <div className="pt-1">
+                        <div >
                             { params.convID == Conversation.id ? (
                               <div className="d-flex align-items-center">
                              <img

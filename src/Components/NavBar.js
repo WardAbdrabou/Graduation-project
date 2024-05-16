@@ -4,9 +4,9 @@ import { Axios } from "../Api/axios";
 import { Dropdown } from "react-bootstrap";
 import {useEffect, useState } from "react";
 import { PROFILE} from "../Api/Api";
+import logo from "../assests/logo4.png"
 // import axios from "axios";
 // import Service from './../Pages/Website/Service';
-import logo from "../assests/logo.png";
 
 export default function NavBar() {
 
@@ -53,10 +53,12 @@ export default function NavBar() {
     return (
         <div className="">
             <div className="navbar p-2 container">
+            <img src={logo} className="logo"></img>
                 <div className="d-flex flex-1 ">
-                    {/* <img src={logo}></img> */}
+                    
                     <Link to="/">Home</Link>
                     <Link to="/service">Service</Link>
+                    <Link to="/service">Community</Link>
                     <Link to="/aboutus">About Us</Link>
                     <Link to="/contact">contact Us</Link>
 
@@ -80,7 +82,7 @@ export default function NavBar() {
                             </Link>
                         </>
                     ) : (<> {is_admin === 1 ? <Link
-                        to="/dashboard"
+                        to="/dashboard/posts"
                         style={{ textAlign: "center" }}
                         className="btn-dashboard"
                     >

@@ -1,13 +1,13 @@
 import React from "react";
-import NavBar from './../../Components/NavBar';
 import sensor from '../../assests/sensor.png'
 import Footer from "./Home/Footer";
+import NavBar from "../../Components/NavBar";
 
 const Sensor = () => {
 
     return (
         <>
-            <NavBar></NavBar>
+             <NavBar></NavBar>
             <div className="sensor" id="sensor">
                 <div className="container d-flex align-items-center justify-content-between d-small">
                     <div className="col-5 headersensor" >

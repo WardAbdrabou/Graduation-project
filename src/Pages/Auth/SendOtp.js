@@ -8,26 +8,16 @@ const SendOtp = () => {
     const [form, setForm] = useState({
         email: "",
     });
-     // Cookie
-    //  const cookie = Cookie();
-
-    // const emailShow = useContext(Email);
-    // console.log(emailShow);
-
     //loading
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState("");
     const [accept, setAccept] = useState(false);
 
-
     const nav = useNavigate();
-
     //Handle form Change
     function handleFormChange(e) {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
-
-
     const handleEmailSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -37,13 +27,9 @@ const SendOtp = () => {
                 // console.log(res)
                 setLoading(false);
                 alert("A new OTP has succesfully been sent to your email.");
-                // const token = res.data.token;
-                // cookie.set("e-commerce", token);
                 const userEmail = res.config.data;
                 localStorage.setItem('email', userEmail);
-                // console.log(token);
                 console.log(userEmail);
-                // emailShow.setEmailAuth({userEmail});
                 nav("/resetpassword");
             } else {
                 console.error('Failed to send OTP');
@@ -63,9 +49,9 @@ const SendOtp = () => {
         <>
         <NavBar></NavBar>
             {loading && <Loading></Loading>}
-            <div className="parent">
+            <div className="parent verify">
                 <div className="register login">
-                    <form onSubmit={handleEmailSubmit}>
+                    <form onSubmit={handleEmailSubmit} className='form'>
                         <div>
                             <div style={{ textAlign: "center" }}>
                                 <h4 style={{ marginBottom: "20px" }}>Forgot Password</h4>
@@ -95,6 +81,5 @@ const SendOtp = () => {
         </>
     );
 };
-
 export default SendOtp;
 

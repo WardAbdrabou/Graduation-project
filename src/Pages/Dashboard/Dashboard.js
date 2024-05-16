@@ -5,8 +5,8 @@ import "./dashboard.css";
 
 export default function Dashboard(){
     return (
-    <div className="dashboard position-relative">
-            <div className="dashboard">
+    <div className=" position-relative">
+            <div className="">
             <TopBar></TopBar>
             <div className="content-flex">
             <SideBar></SideBar>

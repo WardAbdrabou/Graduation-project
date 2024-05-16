@@ -4,8 +4,8 @@ import "../Css/card.css";
 export default function CardGrowingTips(props) {
     const { growingtip ,showButton } = props;
     return (        
-                <div className='box'>
-                    {/* <img src={growingtip.image}  alt="img"/>  */}
+                <div className='box mt-5'>
+                    <img src={growingtip.image}  alt="img"/> 
                     <div className="content">
                         <h3 className="limitnumberh">
                             {growingtip.title}

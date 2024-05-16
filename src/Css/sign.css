@@ -20,6 +20,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.verify{
+    height: 100vh; 
+
+}
 .form{
     width: 400px;
     padding: 20px;
