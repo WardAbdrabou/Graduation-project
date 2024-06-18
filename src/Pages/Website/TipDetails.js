@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { baseURL} from "../../Api/Api";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "../../Components/NavBar";
 import { Axios } from "../../Api/axios";
+import Footer from "./Home/Footer";
+
 
 export default function TipDetalis() {
     const params = useParams();
@@ -35,6 +37,7 @@ export default function TipDetalis() {
                     </div> 
                     
                 </div>
+                <Footer></Footer>
         </>
     );
 }

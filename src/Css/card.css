@@ -126,6 +126,9 @@
     width: 100%;
     max-width: 100%;
     background-color: #ecffe5;
+    font-weight: bold;
+
+    font-size: 20px;
 }
 
 /* .navbar img {
@@ -638,10 +641,10 @@
     outline: none;
   }
   .contact .content .btn-contact{
-    margin-left: 50%;
     font-size: 16px; 
     width: 90px;
     height: 50px;
+    
   }
  .contact .content .infoContact{
     margin: 0 0 0 -5%;
@@ -822,7 +825,7 @@
         margin-left: 140px;
     }
 }
-
+z
 /*End Sensor */
 /* Start Pricing */
 .pricing{
@@ -844,19 +847,20 @@
     position: relative;
     text-align: center;
     z-index: 1;
-    background-image: url(../assests/membership\ image.png);
+    /* background-image: url(../assests/membership\ image.png); */
+    background-color: #f5f6f8;
     background-repeat: no-repeat;
     height: 490px;
     width: 325px;
+    border-radius: 20px;
 
 }
 .pricing .box .title{
-    font-weight: bold;
+    font-weight: 400;
     margin-top: 30px ;
     font-size: 40px;
     letter-spacing: -1px;   
     color: black;
-    font-weight: bold;
     padding-top: 10px;
 }
 .pricing .price{
@@ -873,10 +877,10 @@
     
 
 }
-.pricing .price .time{
+.pricing .time{
     font-size: 30px;
     font-weight: bold;
-    color: rgba(111, 154, 97, 1);
+    color: rgba(111, 154, 97, 1) !important;
 
 
 }
@@ -887,7 +891,6 @@
 .pricing .box ul li{
     padding: 20px 0px 20px;
     border-top: 1px solid #eee;
-    font-weight: 900;
 }
 /* .pricing .box ul li::before{
     font-family: "Font Awesome 5 Free";
@@ -898,6 +901,7 @@
 } */
 .pricing .box ul .icon-sub{
     margin-right: 10px;
+  
     /* background: none !important; */
     /* background-color: #6F9A61 !important; */
 } 
@@ -987,17 +991,12 @@
 /*End About Us */
 /* chat */
 .chat{
-    background-color: #eee;
+    /* background-color: rgba(8, 48, 88, 0.6) ; */
     height: 75vh !important;
     overflow: hidden;
     overflow-y: auto;
 }
-.message{
-    /* align-items: end !important;
-    justify-items: flex-end !important;
- */
-
-}.message-chat{
+.message-chat{
     /* height: 35.1vh; */
     padding-top: 30px;
     
@@ -1009,19 +1008,20 @@
     width: fit-content ;
     height: fit-content ;
     padding: 10px 20px;
-    border-top-left-radius: 25px; 
-    border-top-right-radius: 25px; 
-    border-bottom-left-radius: 25px; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    border-bottom-left-radius: 10px; 
     border-bottom-right-radius: none !important;
 }
 .message-div-right{
-    background-color:white;
+    background-color:rgba(232, 236, 239, 1);
+    color: black;
     width: fit-content ;
     height: fit-content ;
     padding: 10px 20px;
-    border-top-left-radius: 25px; 
-    border-top-right-radius: 25px; 
-    border-bottom-right-radius: 25px; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px; 
     border-bottom-left-radius: none !important;
     /* margin-top: 0 !important; */
 

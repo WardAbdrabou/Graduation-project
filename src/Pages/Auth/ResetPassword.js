@@ -45,7 +45,7 @@ const ResetPassword = () => {
     <div>
       <NavBar></NavBar>
       {loading && <Loading></Loading>}
-      <div className="parent verify">
+      <div className="parent">
         <div className="register login">
           <form onSubmit={handleResetSubmit} className='form'>
             <div>
@@ -56,8 +56,8 @@ const ResetPassword = () => {
               </div>
               
               <div className="mb-2">
-                <label htmlFor="password" style={{ fontSize: "13px" }}>
-                  Enter new password
+                <label htmlFor="password" style={{ fontSize: "14px" }}>
+                  Enter new password:
                 </label>
                 <input
                   name="password"

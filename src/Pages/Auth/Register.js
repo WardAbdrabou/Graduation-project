@@ -77,7 +77,7 @@ export default function Register() {
                                 </p>
                             </div>
                             <div className="mb-2">
-                                <label htmlFor="name">User name</label>
+                                <label htmlFor="name">User name:</label>
                                 <input
                                     className="mb-2"
                                     name="name"
@@ -94,7 +94,7 @@ export default function Register() {
                             )}
 
                             <div className="mb-2">
-                                <label htmlFor="email">Email address</label>
+                                <label htmlFor="email">Email address:</label>
                                 <input
                                     className="mb-2"
                                     name="email"
@@ -125,7 +125,7 @@ export default function Register() {
                             )}
 
                             <div className="mb-2">
-                                <label htmlFor="passwordCo">Password Confirmation</label>
+                                <label htmlFor="passwordCo">Password Confirmation"</label>
                                 <input
                                     className="mb-2"
                                     name="password_confirmation"

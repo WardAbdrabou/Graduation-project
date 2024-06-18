@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DISEASE, DISEASES,  RELATEDPICTUREDISEASES, baseURL2 } from "../../Api/Api";
+import { DISEASE, DISEASES} from "../../Api/Api";
 import NavBar from "../../Components/NavBar";
 import { Axios } from "../../Api/axios";
 import Footer from "./Home/Footer";
@@ -17,12 +17,6 @@ export default function PlantDiseases(props) {
             .then((disease) => setDisease(disease.data.disease));
     }, []);
 
-    // useEffect(() => {
-    //     fetch(`${baseURL2}/${RELATEDPICTUREDISEASES}`)
-    //         .then((res) => res.json())
-    //         .then((data) => setrelatedPictures(data));/
-    // }, []);
-
     return (
         <>
         <NavBar></NavBar>
@@ -35,7 +29,6 @@ export default function PlantDiseases(props) {
                         </h3>
                         <p className="limitnumber"><span className="fw-bold m-1">Description :</span>{disease.description}</p>
                         <p><span className="fw-bold m-1">Prevention and Control :</span>{disease["Prevention and Control"]}</p>
-                        {/* <Link to={`/product/${disease.id}`} showButton={true} c bG lassName="btn-detail">Read More</Link>   */}
                     </div> 
                     
                 </div>

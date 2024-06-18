@@ -89,7 +89,7 @@ export default function Post() {
               type="file" />
           
             <label> Description </label>
-            <input
+            <textarea
                         className='inputdash w-100 desdash'
                         style={{outline:"none" , height:"200px" }}
                         name='body'

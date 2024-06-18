@@ -103,14 +103,13 @@ export default function PlantDetalis() {
 
                         </div>
                     </div>
-                    <div className="text-center mt-5">
+                    {/* <div className="text-center mt-5">
                         <button className="btn-pagination" onClick={handlePrevPage} disabled={currentPage === 1}><FontAwesomeIcon icon={faAngleLeft} /></button>
                         <span>{currentPage} - {totalPages}</span>
                         <button className="btn-pagination" onClick={handleNextPage} disabled={currentPage === totalPages}>
                             <FontAwesomeIcon icon={faAngleRight} />
                         </button>
-
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

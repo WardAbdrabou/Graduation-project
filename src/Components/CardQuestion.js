@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../Css/post.css";
-import avatar from "../assests/avatar.jpg";
 import { QUESTUION, baseURL } from "../Api/Api";
 import { Axios } from "../Api/axios";
-// import Cookie from 'cookie-universal';
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faPaperPlane, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import Loading from "./Loading";
-
+import avatar from "../assests/7.png"
 
 //Each Card Contain
 export default function CardQuestion(props) {
@@ -23,20 +21,8 @@ export default function CardQuestion(props) {
     const [body, setBody] = useState("");
     const nav = useNavigate();
 
-    // const [star, SeStar] = React.useState(true);
-
-
     const [loading, setLoading] = useState(false);
     const [modalShow, setModalShow] = React.useState(false);
-
-    // useEffect(() => {
-    //     Axios.get(`${baseURL}/${PROFILE}`)
-    //       .then((dataprofile) => {
-    //         setProfiles(dataprofile.data.user.name)
-    //         // console.log(dataprofile.data.user)
-    
-    //       })            
-    //   }, []);
 
     async function fetchData() {
         try {
@@ -73,7 +59,6 @@ export default function CardQuestion(props) {
 
 
         } catch (err) {
-            // nav('/profile', { replace: true });
             setLoading(false);
             // console.log(err);
         }
@@ -109,7 +94,7 @@ export default function CardQuestion(props) {
             <div class="wrapper gap-20 align-content-center">
                 <div class="last-post p-20 bg-white rad-10 p-relative post-card">
                     <div class="top d-flex align-center ">
-                        <img class="avatar-post mr-15" src={dataprofile.thumbnail} alt="" />
+                        <img class="avatar-post mr-15" src={dataprofile.thumbnail} alt="not found"/>
                         {/* <img src={avatar} alt="img" class="avatar-post mr-15" /> */}
 
                         <div class="info">
@@ -151,10 +136,10 @@ export default function CardQuestion(props) {
                             </div>
                             <div>
                             {dataprofile.membership_level_id === 1 && dataprofile.free_trails === 0 ? (<Link style={{ textDecoration: "none", color: "black" }} onClick={() => (alert("go to pricing page"))}>
-                                <FontAwesomeIcon icon={faComment} style={{ marginRight: "5px", color: "black", fontSize: "30px", marginTop:"3px"  }} />
+                                <FontAwesomeIcon icon={faComment} style={{ marginRight: "6px", color: "black", fontSize: "30px", marginTop:"3px"  }} />
                                 <span>Comment</span>
                             </Link>) : (<Link style={{ textDecoration: "none", color: "black" }} onClick={() => setModalShow(true)}>
-                                <FontAwesomeIcon icon={faComment} style={{ marginRight: "8px", color: "black", fontSize: "30px" ,marginBottom:"-6px" }} />
+                                <FontAwesomeIcon icon={faComment} style={{ marginRight: "8px", color: "", fontSize: "30px" ,marginBottom:"-6px" }} />
                                 <span >Comment</span>
                             </Link>)}
 
@@ -169,10 +154,11 @@ export default function CardQuestion(props) {
                                     return (
                                         <>
                                             <div className="flex-grow-1 flex-shrink-1" key={comment.id}>
-                                                <div>
-                                                    <div className="d-flex justify-content-between align-items-center">
-                                                        <p className="mb-1">
-                                                        {comment.name}{" "}Ward
+                                                <div style={{backgroundColor:'#eee', padding:"10px" , borderRadius:"10px"}}> 
+                                                    <div className="d-flex  align-items-center" >
+                                                        <img src={avatar} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img>
+                                                        <p className="mb-1 fw-bold">
+                                                        {comment.name}Ward
                                                             {/* <span className="small">- 2 hours ago</span> */}
                                                         </p>
                                                         <a href="#!">
@@ -180,7 +166,7 @@ export default function CardQuestion(props) {
                                                             {/* <span className="small" onClick={() => setModalShow(true)}> reply</span> */}
                                                         </a>
                                                     </div>
-                                                    <p className="small mb-0">
+                                                    <p className="small mb-0" style={{marginLeft:"50px"}}>
                                                         {comment.body}
                                                     </p>
                                                 </div>
@@ -249,9 +235,13 @@ export default function CardQuestion(props) {
                                     return (
                                         <>
                                             <div className="flex-grow-1 flex-shrink-1" key={comment.id}>
-                                                <div>
-                                                    <div className="d-flex justify-content-between align-items-center">
-                                                        <p className="mb-1">
+                                                <div style={{backgroundColor:'#eee', padding:"10px" , borderRadius:"10px"}}>
+                                                <div className="d-flex  align-items-center" >
+
+                                                <img src={avatar} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img>
+
+                                                    <div className="d-flex align-items-center">
+                                                        <p className="mb-1 fw-bold">
                                                         {comment.name}{" "}Ward
                                                             {/* <span className="small">- 2 hours ago</span> */}
                                                         </p>
@@ -260,7 +250,8 @@ export default function CardQuestion(props) {
                                                             {/* <span className="small"> reply</span> */}
                                                         </a>
                                                     </div>
-                                                    <p className="small mb-0">
+                                                    </div>
+                                                    <p className="small mb-0" style={{marginLeft:"50px"}}>
                                                         {comment.body}
                                                     </p>
                                                 </div>
@@ -273,7 +264,7 @@ export default function CardQuestion(props) {
                             <div className='d-flex p-2'>
                                 <input
                                 className="comment"
-                                    style={{ width: "700px" }}
+                                    style={{ width: "550px" }}
                                     name='name'
                                     value={body}
                                     required
@@ -281,7 +272,7 @@ export default function CardQuestion(props) {
                                     type="text" placeholder="Add your Comment....." />
                                 <button
                                     className="btn-comment"
-                                    style={{ marginLeft: "-40px", marginTop: "3px", width: '40px', height: "40p", borderRadius: "50px" }}
+                                    style={{ marginLeft: "-45px", marginTop: "3px", width: '40px', height: "40px", borderRadius: "50px" }}
                                     disabled={
                                         body.length > 1
                                             ? false : true

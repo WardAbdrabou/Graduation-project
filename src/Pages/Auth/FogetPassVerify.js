@@ -77,9 +77,9 @@ const ForgetPassVerify = () => {
     <div>
       <NavBar></NavBar>
       {loading && <Loading></Loading>}
-      <div className="parent">
+      <div className="parent verfiy">
         <div className="register login">
-          <form onSubmit={handleVerifySubmit}>
+          <form onSubmit={handleVerifySubmit} className='form'>
             <div>
               <div style={{ textAlign: "center" }}>
                 <h4 style={{ marginBottom: "20px" }}>Verify OTP</h4>
@@ -107,7 +107,7 @@ const ForgetPassVerify = () => {
               <div style={{ textAlign: "center" }}>
                 <button type="submit">Verify</button>
               </div>
-              {/* {err !== "" && <span className="error">{err}</span>} */}
+              {err !== "" && <span className="error mt-2">{err}</span>}
             </div>
           </form>
         </div>

@@ -137,6 +137,7 @@ td{
 }
 .btnpost{
     color: white;
+    text-transform: capitalize;
 
 }
 .btnpost:disabled{
@@ -164,5 +165,10 @@ td{
 background-color: var(--main-color) !important;
 color: white;
 
+}
+.desdash{
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+    border-radius: 15px;
 }
 /* Dashboard */

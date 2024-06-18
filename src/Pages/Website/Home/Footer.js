@@ -2,7 +2,7 @@ import React from "react";
 // import footerlogo from './../../../assests/logo.png'
 import { Link } from "react-router-dom";
 import './Footer.css';
-import footerlogo from "./../../../assests/logo3.jpg"
+import footerlogo from "./../../../assests/logo4.png"
 
 const Footer = () => {
     return (

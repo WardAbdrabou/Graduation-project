@@ -65,7 +65,7 @@ export default function Login() {
                                 </p>
                             </div>
 
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Email:</label>
                             <input
                                 className="mb-4"
                                 name="email"

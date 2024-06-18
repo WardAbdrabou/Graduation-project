@@ -13,8 +13,6 @@ export default function Hiring(){
     const [major, setMajor] = useState("");
     const [degree, setDegree] = useState("");
     const [graduation_date, setGraduation_date] = useState("");
-    // const [image, setImage] = useState("");
-    // const [disable, setDisable] = useState(true);
     const [loading, setLoading] = useState(false);
 
     async function HandleSubmit(e) {

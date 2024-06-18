@@ -1,18 +1,1 @@
-.card {
-    width: 320px !important;
-    height: 90px !important;
-    border-radius: 15px 15px 0 0 !important;
-    margin-left: 25px;
-    display: flex;
-    /* justify-content: space-between; */
-    margin-bottom: 295px !important;
-
-}
-
-.menu button:hover{
-   
-    color: #6F9A61!important;
-    background-color: #fff ;
-    border: 
-    1px solid  #fff;
-}
+/*  */

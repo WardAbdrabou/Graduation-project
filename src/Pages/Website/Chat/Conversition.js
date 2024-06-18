@@ -1,4 +1,3 @@
-import { MDBCard, MDBCardBody, MDBCol, MDBTypography } from "mdb-react-ui-kit";
 import { Axios } from "../../../Api/axios";
 import {baseURL } from "../../../Api/Api";
 import { useEffect, useState } from "react";
@@ -6,6 +5,9 @@ import { useParams} from 'react-router-dom';
 import Loading from "../../../Components/Loading";
 import NavBar from "../../../Components/NavBar";
 import HeaderName from "./HeaderName";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import conv from "../../../assests/conver.png";
 
 export default function Conversation(){
         const params = useParams();
@@ -47,7 +49,8 @@ export default function Conversation(){
         <>
         {loading && <Loading></Loading>}
         <NavBar></NavBar>
-        <div style={{backgroundColor:"#eee" , height:"90vh"}}>
+        <div className="d-flex">
+        <div style={{backgroundColor:"rgba(241, 244, 247, 0.6)", height:"87vh" , width:"63%"}}>
         <HeaderName></HeaderName>
 
         <div  className="chat">
@@ -60,7 +63,7 @@ export default function Conversation(){
                 
                 <div className="message-chat">  
           <li class=" d-flex flex-row justify-content-start message" >
-            <div className="message-div-right">
+            <div className="message-div-right" style={{color:'black', backgroundColor:"rgba(232, 236, 239, 1)"}}>
               {/* <MDBCardBody> */}
                 <p className="mb-0" >
                 {showmessage.message}
@@ -91,9 +94,10 @@ export default function Conversation(){
                 
               
           )})}
-          <form className='d-flex justify-content-center align-items-center' onSubmit={HandleSubmit} style={{position:"fixed" ,width:"98%" , bottom:"0px"}}>
+          <form className='d-flex justify-content-center align-items-center ' onSubmit={HandleSubmit} style={{position:"fixed" , width:"58%" , bottom:"0px"}}>
               <div class="txt-c-mobile w-100" style={{marginTop:"20px"}}>
                 <input
+                style={{ borderRadius:"60px", border:"none"}}
                                     name="message"
                                     id="message"
                                     type="text"
@@ -103,11 +107,16 @@ export default function Conversation(){
                                     onChange={(e) => setSendMessages(e.target.value)}
                                     ></input>
                 </div>
+
                 <button 
+                
                 disabled={
                   sendmessages.length > 1 
                     ? false : true
-                    } type='submit' className='btnpost' style={{marginBottom:"10px" , marginLeft:"-125px" ,marginTop:"20px"}}>send</button>
+                    } type='submit' className='btnpost' style={{marginBottom:"10px" , marginLeft:"-50px" ,marginTop:"20px",width: '40px', height: "40px", borderRadius:"110px"}}>
+                      <FontAwesomeIcon icon={faPaperPlane} style={{ color: "white", fontSize: "20px", marginLeft: "-4px" }} />
+                    </button>
+
             </form>
             <li className="mb-5 d-flex" style={{zIndex:"-2"}} >
             </li>        
@@ -115,6 +124,13 @@ export default function Conversation(){
         </div>
 
         </div>
+        <div>
+        <img src={conv} style={{height:"87vh", width:"100%"}}></img>
+
+        </div>
+
+        </div>
+      
       
         </>
     )

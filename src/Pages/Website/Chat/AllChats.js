@@ -1,4 +1,4 @@
-import { MDBCardBody, MDBCol, MDBTypography ,MDBRow ,MDBContainer} from "mdb-react-ui-kit";
+import { MDBCol, MDBTypography ,MDBRow ,MDBContainer} from "mdb-react-ui-kit";
 import { useEffect, useState } from "react";
 import { Axios } from "../../../Api/axios";
 import { CONVERSATIONS, baseURL } from "../../../Api/Api";

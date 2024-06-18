@@ -11,10 +11,13 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Home/Footer";
 // import axios from "axios";
 import Loading from "../../Components/Loading";
+import { useParams } from "react-router-dom";
 
 
 export default function PlantDetection() {
     // const [plantDetection, setplantDetection] = useState([]);
+    const params = useParams();
+
     const [PlantDiseases, setPlantDiseases] = useState([]);
     const [fileup, setfileup] = useState("");
     const [loading, setLoading] = useState(false);
@@ -52,8 +55,10 @@ export default function PlantDetection() {
         try {
             const res = await Axios.post(`http://127.0.0.1:5000/api`, form);
             console.log(res.data.soilname);
+            const soilname = (res.data.soilname);
             setLoading(false);
-              window.location.pathname = "/diseases/disease";
+            // window.location.pathname = `/diseases/disease/${params.diseaseId}`;
+            window.location.pathname = `/diseases/disease/${soilname}`;
         } catch (err) {
             setLoading(false);
             console.log(err);
@@ -127,14 +132,14 @@ export default function PlantDetection() {
                                     })}
 
                         </div>
-                        <div className="text-center mt-5">
+                        {/* <div className="text-center mt-5">
                             <button className="btn-pagination" onClick={handlePrevPage} disabled={currentPage === 1}><FontAwesomeIcon icon={faAngleLeft} /></button>
                             <span>{currentPage} - {totalPages}</span>
                             <button className="btn-pagination" onClick={handleNextPage} disabled={currentPage === totalPages}>
                                 <FontAwesomeIcon icon={faAngleRight} />
                             </button>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

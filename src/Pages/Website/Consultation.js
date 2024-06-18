@@ -5,6 +5,7 @@ import { CONSUL, PROFILE } from "../../Api/Api";
 import { Axios } from "../../Api/axios";
 import NavBar from "../../Components/NavBar";
 import { useNavigate} from "react-router-dom";
+import Footer from "./Home/Footer";
 // import axios from "axios";
 
 // Consultation Item
@@ -20,11 +21,8 @@ export default function Consultation() {
         Axios.get(`/${PROFILE}`)
           .then((dataprofile) => {
             setmembership_level_id(dataprofile.data.user.membership_level_id)
-
             setfree_trails(dataprofile.data.user.free_trails)
-          
             // console.log(dataprofile.data.user)
-    
           })            
       }, []);
 
@@ -84,6 +82,7 @@ export default function Consultation() {
                     })}
                 </div>
             </div>
+            <Footer></Footer>
         </>
     )
 }

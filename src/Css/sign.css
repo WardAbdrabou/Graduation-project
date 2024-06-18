@@ -15,13 +15,13 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    height: 90.1vh; 
+    height: 87.3vh; 
     background-image: url(../assests/background.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 .verify{
-    height: 100vh; 
+    height:  716.3px; 
 
 }
 .form{

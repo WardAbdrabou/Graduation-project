@@ -27,7 +27,6 @@ import VerifySuccess from "./Pages/Auth/VerifySuccess";
 import Profile from "./Pages/Website/Profile/Profile";
 import Sensor from "./Pages/Website/Sensor";
 import Service from "./Pages/Website/Service";
-import Chat from "./Pages/Website/Chat/Chat";
 import ForgetPassVerify from "./Pages/Auth/FogetPassVerify";
 import Hiring from "./Pages/Website/Hiring";
 import ThanksApplying from "./Pages/Website/ThanksApplying";
@@ -49,6 +48,8 @@ import SoilType from "./Pages/Website/SoilType/SoilType";
 import SoilTypeDetails from "./Pages/Website/SoilType/SoilTypeDetails";
 import TipDetalis from "./Pages/Website/TipDetails";
 import GrowingTips from "./Pages/Website/GrowingTips";
+// import GrowingTipsDetails from "./Pages/Website/growingtips/GrowingTipsDetails";
+// import GrowingTips from "./Pages/Website/growingtips/GrowingTips";
 
 function App() {
   return (
@@ -72,14 +73,13 @@ function App() {
           path="/plantdetection"
           element={<PlantDetection></PlantDetection>}
         ></Route>
-        <Route
-          path="/growingtips"
-          element={<GrowingTips></GrowingTips>}
-        ></Route>
-        {/* <Route
-          path="growingtips/:GrowingTipsId"
-          element={<GrowingTipsDetails />}
-        /> */}
+       
+          <Route path='/growingtips' element={<GrowingTips></GrowingTips>}></Route> 
+
+           <Route path={`growing_tips/:tipId`} element={<TipDetalis></TipDetalis>}></Route>
+          {/* <Route path='/growingtips' element={<GrowingTips/>} />
+    <Route path='growingtips/:GrowingTipsId' element={<GrowingTipsDetails/>} /> */}
+
         <Route path="/soiltype" element={<SoilType />} />
         <Route path="/soiltype/:soilTypeId" element={<SoilTypeDetails />} />
         <Route path="/profile" element={<Profile></Profile>}>
@@ -107,15 +107,13 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route path="/sensor" element={<Sensor></Sensor>}></Route>
 
-        <Route path="/chat" element={<Chat></Chat>}></Route>
+        {/* <Route path="/chat" element={<Chat></Chat>}></Route> */}
         <Route path="/allchats" element={<AllChats></AllChats>}></Route>
         <Route
           path="/allchats/:convID"
           element={<Conversation></Conversation>}
         ></Route>
-                  <Route path='/growingtips' element={<GrowingTips></GrowingTips>}></Route>
-
-          <Route path={`growing_tips/:tipId`} element={<TipDetalis></TipDetalis>}></Route>
+                
 
         {/* <Route path='/plantdiseases' element={<PlantDiseases></PlantDiseases>}></Route> */}
 

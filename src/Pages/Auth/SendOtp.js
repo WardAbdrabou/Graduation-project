@@ -30,7 +30,7 @@ const SendOtp = () => {
                 const userEmail = res.config.data;
                 localStorage.setItem('email', userEmail);
                 console.log(userEmail);
-                nav("/resetpassword");
+                nav("/forgetpassverify");
             } else {
                 console.error('Failed to send OTP');
             }
@@ -49,7 +49,7 @@ const SendOtp = () => {
         <>
         <NavBar></NavBar>
             {loading && <Loading></Loading>}
-            <div className="parent verify">
+            <div className="parent ">
                 <div className="register login">
                     <form onSubmit={handleEmailSubmit} className='form'>
                         <div>
@@ -60,7 +60,7 @@ const SendOtp = () => {
                                 </p>
                             </div>
                             <label className='mb-2'>
-                                Email address
+                                Email address:
                             </label>
                             <input
                                 name='email'

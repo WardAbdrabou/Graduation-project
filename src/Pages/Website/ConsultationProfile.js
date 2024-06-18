@@ -29,7 +29,6 @@ export default function ConsultationProfile() {
   useEffect(() => {
     Axios.get(`/${CONSUL}/${params.consID}`)
       .then((dataprofile) => {
-
         setdataprofile(dataprofile.data.instructor)
         setProfiles(dataprofile.data.instructor)
         setQuestions(dataprofile.data.instructor.posts)
@@ -53,10 +52,10 @@ export default function ConsultationProfile() {
             </div>
           </div>
           <div >
-
+{/* 
             <Link to="/editprofile" className="btn-newpost">
             <FontAwesomeIcon icon={faPenToSquare} />
-            </Link>
+            </Link> */}
             <Link to={`/allchats/${dataprofile.id}`} className="btn-newpost">
             <FontAwesomeIcon icon={faMessage} /></Link>
             {/* <Link  className="btn-newpost" onClick={() => setModalShow(true)}>

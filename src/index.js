@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./Css/Loading.css";
-import "./Css/button.css";
 import "./Css/alerts.css";
 import "./all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';

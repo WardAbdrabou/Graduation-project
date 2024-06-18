@@ -2,7 +2,6 @@ import NavBar from '../../../Components/NavBar';
 import React, { useEffect, useState } from 'react';
 import { Axios } from '../../../Api/axios';
 import {  PROFILE, baseURL } from '../../../Api/Api';
-import avatar from "../../../assests/avatar.jpg";
 import background from "../../../assests/background.png";
 import CardQuestion from '../../../Components/CardQuestion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,19 +34,6 @@ export default function Profile() {
 
       })            
   }, []);
-
-//   useEffect(() => {
-//     const res = Axios.get(`${baseURL}/question`)
-//         .then((data) => {
-//              console.log(data.data)
-//             // const questionId = data.data.question.id;
-//             // localStorage.setItem('questionId', questionId);
-//             // setComments(data.data.question.comments)
-
-//         }
-//         );
-// }, []);
-  
 
   return (
     <>
