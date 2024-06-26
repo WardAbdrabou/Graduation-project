@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../Css/card.css";
 import { CONSUL } from "../Api/Api";
 
 //Each Card Contain
 export default function CardConsultation(props) {
     const { consultation } = props;
+    const params = useParams();
+
     
     return (
         <Link to={`/${CONSUL}/${consultation.id}`} style={{textDecoration:"none"}}>

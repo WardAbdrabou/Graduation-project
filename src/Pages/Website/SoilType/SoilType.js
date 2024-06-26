@@ -1,89 +1,103 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import vector from "./../../../assests/Vector.png"
-
-// import './GrowingTips.css';
-
-// ward
 import { Axios } from './../../../Api/axios';
-
-// import { Grow , baseURL } from './../../Api/Api';
 import SoilTypeList from "./SoilTypeList";
-import soilType from './../../../assests/plant-leaf 1.png';
+
+import soilType from '../../../assests/plant-leaf 1.png';
+import upload from '../../../assests/upload.png'
+import vector from '../../../assests/Vector.png';
 import NavBar from "../../../Components/NavBar";
 import Footer from "../Home/Footer";
 
-// import { useParams } from "react-router-dom";
 
-function SoilType() {   
-    const [Soil, setSoil] = useState([]);
-    const [search, setSearch] = useState("")
-   
-   
-    
-    useEffect(() => {
-        Axios.get(`http://127.0.0.1:8000/api/soils`)
-          .then((data) => {
-            console.log(data.data);
-            setSoil(data.data);
-            })
-            .catch((error) => {
-            console.log(error);
-             });
-    
-      }, []);
-  
-    
-    return (
-      <>
-      <NavBar></NavBar>
-      <div className="sec2det text-center">
-                    <img className="img-diseases" alt='not found' src={soilType}></img>
-                    <img className="img-diseases vec" src={vector}></img>
-          {/* <img src={soilType} alt='not found'style={{marginTop:'40px'}}/> */}
-          <p  className="main-title-diseases">Identify Soil For Free</p>
-          <p className="main-titlep-diseases">You Can Take a photo or search by soil name</p>
-          <br/>
-          <input placeholder="Enter Common Name"  onChange={event => setSearch(event.target.value)} className="searchDiseases"/>
-          <br/>
+
+
+
+function SoilType() {
+  const [Soil, setSoil] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredSoil, setFilteredSoil] = useState([]);
+  const [fileup, setfileup] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    Axios.get("http://127.0.0.1:8000/api/soils")
+      .then((data) => {
+        console.log(data.data);
+        setSoil(data.data);
+        setFilteredSoil(data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  function HandleSubmit() {
+    setLoading(true);
+    // قيمة ثابتة لتجربة التصفية
+    const soilName = "Clay".toLowerCase();
+    const matchedSoil = Soil.filter(soil => soil.name.toLowerCase() === soilName);
+    setFilteredSoil(matchedSoil);
+    setLoading(false);
+  }
+
+  const handleFileChange = (e) => {
+    const file = e.target.files.item(0);
+    setfileup(file);
+    HandleSubmit();
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+    const searchTerm = e.target.value.toLowerCase();
+    const filtered = Soil.filter(soil => soil.name.toLowerCase().includes(searchTerm));
+    setFilteredSoil(filtered);
+  };
+
+  return (
+    <>
+    <NavBar></NavBar>
+      <div className="text-center" style={{ width: '100%', backgroundColor: 'rgba(238, 238, 238, 0.5)' }}>
+        <div>
+          <img src={soilType} alt='not found' style={{ marginTop: '40px' }} />
+          <img src={vector} alt='not found' style={{ marginTop: '195px', marginLeft: '-26px' }} />
+        </div>
+        <p style={{ color: "#6F9A61", fontSize: "44px", fontWeight: 'bold' }}>Identify Soil For Free</p>
+        <p style={{ color: "black", fontSize: "26px" }}>You Can Take a photo or search by soil name</p>
+        <input 
+          placeholder="Enter Common Name" 
+          onChange={handleSearchChange} 
+          style={{ width: '50%', marginBottom: '40px', borderRadius: '50px' }} 
+        />
+        <input 
+          id="file-upload" 
+          className="image-upload" 
+          onChange={handleFileChange} 
+          type="file" 
+          style={{ display: 'none' }} 
+        />
+        <label htmlFor="file-upload" style={{ cursor: 'pointer', marginLeft: '-55px' }}>
+          <img src={upload} alt="Upload Icon" />
+        </label>
       </div>
-      {/* <div className="text-center mt-5">
-                            <input className="image-upload" onChange={(e) => setfileup(e.target.files.item(0))}
-                                type="file" />
-                            <button type="submit" className="btn-upload" onClick={HandleSubmit}>predict</button>
 
-                        
-                        </div> */}
-
-     <div className="cards">
-     <h2 className="main-title text-center" >Soil Type</h2>
-            <p className="main-titlep">Include Information on soil conditions, watering frequency, and other factors</p>
-       
-        <div className='container'>
-          {Soil &&
-           Soil.filter(soil => {
-            if (search === '') {
-                return soil;
-            } else if (soil.name.toLowerCase().includes(search.toLowerCase())) {
-                return soil;
-            }
-            }).map((soil, index) => {
-            return (
-              
-                <div key={soil.id}>
-                <SoilTypeList soil={soil}  />
-                 </div>
-            );})}
-           
+      <div className="cards">
+        <h2 className="text-center" style={{ color: "#6F9A61", fontSize: "57px", paddingTop: '30px', fontWeight: 'bold' }}>Soil Type</h2>
+        <p className="text-center" style={{ fontSize: "16px", marginBottom: '55px', color: 'gray' }}>
+          "Detect The type of the soil, Know information about every soil and 
+          Know <br />the best plant rely on the type soil"
+        </p>
+        <div className="container">
+          {filteredSoil &&
+            filteredSoil.map((soil, index) => (
+              <div key={soil.id}>
+                <SoilTypeList soil={soil} />
+              </div>
+            ))}
         </div>
       </div>
-
       <Footer></Footer>
-
-      </>
-
-    )
-  }
-  export default SoilType;
-
-    
+    </>
+  )
+}
+export default SoilType;

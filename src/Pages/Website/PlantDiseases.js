@@ -1,57 +1,64 @@
 import { useEffect, useState } from "react";
-import { DISEASE, DISEASES} from "../../Api/Api";
+import { DISEASES} from "../../Api/Api";
 import NavBar from "../../Components/NavBar";
 import { Axios } from "../../Api/axios";
 import Footer from "./Home/Footer";
 import { useParams } from "react-router-dom";
 
 export default function PlantDiseases(props) {
+
     const params = useParams();
-
     const [disease, setDisease] = useState({});
-    // const [relatedPictures, setrelatedPictures] = useState([]);
-
   
     useEffect(() => {
-        Axios.get(`/${DISEASES}/${DISEASE}/${params.diseaseId}`)
-            .then((disease) => setDisease(disease.data.disease));
+        Axios.get(`/${DISEASES}/${params.diseaseId}`)
+            .then((disease) => {
+                setDisease(disease.data.disease)
+                console.log(disease.data)
+            });
     }, []);
+
+    
 
     return (
         <>
-        <NavBar></NavBar>
-            <h1 className="plantDetDes">Plant Diseases</h1>
-            <div className=' d-flex align-content-center'>
-                    <img src={disease.image}  alt="img" className="imgplantdetial col-4"/> 
-                    <div className="contentplant col-4">
-                        <h3 className="limitnumberh">
-                            {disease.name}
-                        </h3>
-                        <p className="limitnumber"><span className="fw-bold m-1">Description :</span>{disease.description}</p>
-                        <p><span className="fw-bold m-1">Prevention and Control :</span>{disease["Prevention and Control"]}</p>
-                    </div> 
+
+<NavBar></NavBar>
+            <div className="heade" style={{width:"75%"}}>
+                <h1 style={{fontSize:'40px',fontWeight:'bold'}}>Disease Detalis</h1>
+            </div>
+            <div className="about-container">
+                <div className="row">
+                    <div className="col-md-6">
+                        <img src={disease.image} alt="chosse us" style={{ width: '100%',borderRadius:'15px',minHeight:'400px' }}/>
+                    </div>
+
+                    <div className="col-md-6" style={{ paddingTop: '8px' }} >
+                        <h2 style={{ color: '#6f9A61', fontSize: '40px',fontWeight:'bold' }}>{disease.name}</h2>
+                        <h2 style={{ color: '#6f9A61', fontSize: '23px' ,fontWeight:'500' }}>Description :</h2>
+
+                        <p style={{fontSize:'18px'}}> {disease.description}</p>
+                        <h2 style={{ color: '#6f9A61', fontSize: '23px' ,fontWeight:'500' }}>Prevention :</h2>
+                        <p style={{fontSize:'18px'}}> {disease.Prevention}</p>  
+                      
+
+                        
+                    </div>
+                    <h2 style={{ color: '#6f9A61', fontSize: '23px',fontWeight:'500' , marginTop:"30px"}}>Treatment : </h2>
+                    <p style={{fontSize:'18px'}}> {disease.Treatment}</p> 
+                  
+                    
+
+                </div>
+                
                     
                 </div>
-
-            {/* <div className="cards" id="cards">
-                <h2 className="plantDetDessec">Related Pictures</h2>
-                <div className='container'>
-                    {relatedPictures.map((relatedPicture) => {
-                        return (
-                            <div key={relatedPicture.id}>
-                                <CardRelatedPic relatedPicture={relatedPicture} />
-                            </div>
-                        );
-                    })}
-                </div>
-            </div> */}
-            <Footer></Footer>
+              
+          <Footer></Footer>
 
         </>
-    );
+    )
 }
-
-
 
 
 

@@ -4,15 +4,15 @@ import "./Css/Loading.css";
 import "./Css/alerts.css";
 import "./all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./index.css";
 import "./Css/profile.css";
 import "./Css/sign.css";
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import MenuContext from './Context/MenuContext';
 import WindowContext from './Context/WindowContext';
-// import EmailProvider from './Pages/Context/EmailContext';
-// import UserProvider from './Pages/Context/UserContext';
+
+import "./index.css";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

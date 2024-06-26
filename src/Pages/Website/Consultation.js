@@ -12,19 +12,16 @@ import Footer from "./Home/Footer";
 export default function Consultation() {
 
     const [consultations, setconsultations] = useState([]);
-    const [membership_level_id, setmembership_level_id] = useState("");
-
-    const [free_trails, setfree_trails] = useState("");
     const nav = useNavigate()
 
-    useEffect(() => {
-        Axios.get(`/${PROFILE}`)
-          .then((dataprofile) => {
-            setmembership_level_id(dataprofile.data.user.membership_level_id)
-            setfree_trails(dataprofile.data.user.free_trails)
-            // console.log(dataprofile.data.user)
-          })            
-      }, []);
+    // useEffect(() => {
+    //     Axios.get(`/${PROFILE}`)
+    //       .then((dataprofile) => {
+    //         // setmembership_level_id(dataprofile.data.user.membership_level_id)
+    //         // setfree_trails(dataprofile.data.user.free_trails)
+    //         // console.log(dataprofile.data.user)
+    //       })            
+    //   }, []);
 
     useEffect(() => {
         Axios.get(`/${CONSUL}`)
@@ -35,35 +32,6 @@ export default function Consultation() {
           .catch(() => nav('/404', { replace: true }));
       }, []);
 
-
-    //   async function fetchData() {
-    //     try {
-    //         if (membership_level_id === 1 && free_trails === 0) {
-    //             return "/404";
-    //         } else if (free_trails == 3 || 2 || 1 ){
-    //             Axios.get(`/${CONSUL}`)
-    //         .then((data) => {
-    //             setconsultations(data.data.instructors.data)
-    //             console.log(data)
-    //         })       
-    //         .catch(() => nav("/404", {replace: true}));
-
-    //         }else if (membership_level_id == 3 ||  4   ){
-    //             Axios.get(`/${CONSUL}`)
-    //         .then((data) => {
-    //             setconsultations(data.data.instructors.data)
-    //             console.log(data)
-    //         })       
-    //         .catch(() => nav("/404", {replace: true}));
-
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
 
     return (
         <>

@@ -4,9 +4,8 @@ header {
     max-width: 100%;
     text-align: left;
     background-size: cover;
-    height: 640px;
+    height: 550px;
     overflow: hidden;
-    
 }
 
 header h3 {
@@ -64,5 +63,6 @@ header button:hover{
    
     color: #6F9A61;
     background-color: #fff ;
-    border: 1px solid  #fff;
+    border: 
+    1px solid  #fff;
 }

@@ -2,22 +2,22 @@ import { Link } from "react-router-dom";
 import "../Css/card.css";
 import EastIcon from '@mui/icons-material/East';
 
-import { DISEASES } from "../Api/Api";
+import { DISEASE, DISEASES } from "../Api/Api";
 
-export default function CardDiseasesDetection(props) {
-    const { PlantDisease ,showButton } = props;
+export default function CardDiseasesSearch(props) {
+    const { Plantname ,showButton } = props;
     return (        
                 <div className='box'>
-                    <img src={PlantDisease.image}  alt="img" /> 
+                    <img src={Plantname.image}  alt="img" /> 
                     <div className="contentbox">
-                        <h3 className="limitnumberh" style={{fontWeight:"bold"}}>
-                            {PlantDisease.name}
+                        <h3 className="limitnumberh">
+                            {Plantname.name}
                         </h3>
-                        <p className="limitnumber">{PlantDisease.description}</p>
+                        <p className="limitnumber">{Plantname.description}</p>
                     </div>
                     {showButton && <div className="infoPlant">
                         
-                        <Link to={`/${DISEASES}/${PlantDisease.id}`}>Read More</Link>  
+                        <Link to={`/${DISEASES}/${DISEASE}/${Plantname.id}`}>Read More</Link>  
                         <EastIcon className="icon"/>
                     </div> }
                     

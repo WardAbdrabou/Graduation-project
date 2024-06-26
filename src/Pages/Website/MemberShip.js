@@ -25,10 +25,6 @@ export default function MemberShip() {
                     <h2 class="main-title" >Subscription</h2>
                     <div class="contmember">
                         {memberShips.map((memberShip) => {
-                            const price = memberShip.Price.split('//')
-                            const Benefits = memberShip.Benefits.split('\n')
-                            // const Features = memberShip.Benefits.split('\n')
-                            // console.log(Benefits)
                             return (
                                 <div key={memberShip.id}>
                                     <div class="box">
@@ -36,24 +32,23 @@ export default function MemberShip() {
                                         <ul type="none" >
                                             <li className="m-2">
                                             <FontAwesomeIcon  icon={faCircleCheck} className="icon-sub" style={{ color: "#6F9A61", fontSize:"20px", fontWeight:"normal"}}/>
-                                            {Benefits[0]}
+                                            {memberShip["Feature 1"]}
                                             </li>
                                             <li className="m-2">
-                                            <FontAwesomeIcon  icon={faCircleCheck} className="icon-sub" style={{ color: "#6F9A61", fontSize:"20px"}}/>{Benefits[1]}
+                                            <FontAwesomeIcon  icon={faCircleCheck} className="icon-sub" style={{ color: "#6F9A61", fontSize:"20px"}}/>{memberShip["Feature 1"]}
                                             </li>
                                         </ul>
-                                        <div class="price mt-5">
-                                            <span class="amount">{price[0]}</span>                                            
-                                            <span class="time"> {price[1]}</span>
+                                     
+                                        
+                                    </div>
+                                    <div class="price ">
+                                            <span class="amount">{memberShip.Price}</span>                                            
                                         </div>
-                                        <div className="text-center" style={{marginLeft:"-30px"}}>
-                                        <Link to={`/membership/${memberShip.id}`} style={{background:"none", border:"none"}}>
+                                        <div className="text-center" style={{marginLeft:"-30px"}} >
+                                        <Link to={`/membership/${memberShip.id}`} style={{background:"none", border:"none" , }}>
                                         <a href="">Buy Now</a>
                                         </Link>
                                         </div>
-                                        
-                                    </div>
-                                   
                                     </div>
 
                             );

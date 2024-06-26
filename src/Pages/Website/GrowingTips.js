@@ -57,9 +57,6 @@ export default function GrowingTips() {
                     <p className="main-titlep limitnumbersuitable">Provide shade or protection for plants that are sensitive to intense Sunlight</p>
                     <div>
                         <div className="catogries">
-                            <button onClick={() => {
-                                getTips();
-                            }} className="btn-catog"> All</button>
                             {
                                 categories.map((cat) => {
                                     return <button key={cat} onClick={() => {

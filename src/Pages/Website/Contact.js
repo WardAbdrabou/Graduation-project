@@ -37,17 +37,17 @@ const Contact = () => {
             <div class="container">
                 <div className="col-6 headerContact " >
                     <h2 className="main-title mb-3 headerCon">Contact US</h2>
-                    <p className="contact-titlep "> if you'd like to contact us, please feel free to send your message </p>
+                    <p className="contact-titlep text-center"> if you'd like to contact us, please feel free to send your message </p>
                 </div>
-                <div class="content">
+                <div class="contentContact" >
 
                     <div class="infoContact">
-                        <img src={contact} alt="img" style={{width:"500px" , height:"600px" , marginLeft:"-40px" , marginRight:"20px"}}></img>
+                        <img src={contact} alt="img" style={{width:"500px" , height:"540px" , marginLeft:"-40px" , marginRight:"20px" }}></img>
                     </div>
 <form ref={form} onSubmit={sendEmail} >
                         <label htmlFor="name">Full Name</label>
                         <input
-                            className="main-input"
+                             className='inputdash'
                             id="name"
                             placeholder="Name....."
                             type="text"
@@ -55,7 +55,7 @@ const Contact = () => {
 
                         <label htmlFor="email">Email Address</label>
                         <input
-                            className="main-input"
+                            className='inputdash'
                             id="email"
                             placeholder="Email....."
                             type="email"
@@ -70,7 +70,7 @@ const Contact = () => {
                 </div>
             </div>
         </div>
-        <Footer></Footer>
+        <Footer ></Footer>
         </>
 
     );

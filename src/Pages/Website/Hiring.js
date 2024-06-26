@@ -49,7 +49,7 @@ export default function Hiring(){
                     <h2 className="main-title plantDetDes headerCon">Getting a Job</h2>
                     <p className="contact-titlep">If you want to join our team and become one of us , fill out this form</p>
                 </div>
-                <div class="content">
+                <div class="contentContact">
 
                     <div class="infoContact">
                         <img src={HIRING} alt="img" style={{width:"500px" , height:"600px" , marginLeft:"-40px" , marginRight:"20px" }}></img>

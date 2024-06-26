@@ -5,8 +5,7 @@ import { AllSUITABLEPLANTS, CATOGRIES, baseURL } from "../../Api/Api";
 import NavBar from "../../Components/NavBar";
 import { Axios } from "../../Api/axios";
 import Footer from "./Home/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+
 
 export default function PlantDetalis() {
     const [suitablePlants, setsuitablePlants] = useState([]);
@@ -61,7 +60,7 @@ export default function PlantDetalis() {
             <div >
                 <div className="cards" id="cards">
                     <h2 className="main-title text-center"> Suitable Plant</h2>
-                    <p className="main-titlep limitnumbersuitable text-center"> you Can know what type of your plants suitable for planting in your soil </p>
+                    <p className="main-titlep  text-center p-2"> you Can know what type of your plants suitable for planting in your soil </p>
                     {/* <Search></Search> */}
                     <div>
                         <div className="catogries">
@@ -77,13 +76,13 @@ export default function PlantDetalis() {
                             }
                         </div>
                         <br />
-                        <div>
+                        <div className="">
                             <input placeholder="Enter your Plant" className="search" onChange={event => setSearch(event.target.value)} type="text"/><br />
-                            <div style={{ marginLeft: "320px", marginTop:"-95px",color: "rgba(208, 197, 197, 1)" }}>
-                                {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="iconsearch" /> */}
-                            </div>
+                            {/* <div style={{ marginLeft: "320px", marginTop:"-95px",color: "rgba(208, 197, 197, 1)" }}>
+                                <FontAwesomeIcon icon={faMagnifyingGlass} className="iconsearch" />
+                            </div> */}
                         </div>
-                        <div className="container mt-5">
+                        <div className="container">
 
                             {suitablePlants &&
                                 suitablePlants.filter(suitablePlant => {

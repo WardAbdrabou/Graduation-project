@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faPaperPlane, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import Loading from "./Loading";
-import avatar from "../assests/7.png"
 
 //Each Card Contain
 export default function CardQuestion(props) {
     const { question } = props;
     const { dataprofile } = props;
+    console.log(dataprofile.free_trails)
 
     // const [dataprofile, setProfiles] = useState([]);
     const [comments, setComments] = useState([]);
@@ -26,13 +26,14 @@ export default function CardQuestion(props) {
 
     async function fetchData() {
         try {
-            if (dataprofile.membership_level_id === 1 && dataprofile.free_trails === 0) {
+            if (dataprofile.membership_level_id === 1 || dataprofile.free_trails === 0) {
                 return "/profile";
-            } else if (dataprofile.membership_level_id === 2 || 3 || 4  ){
+            } else if (dataprofile.membership_level_id === 1 || 2 || 3 || 4  ){
                 Axios.get(`/${QUESTUION}/${question.id}`)
             .then((data) => {
-                setComments(data.data.question.comments)
-                //  console.log(data.data.question.comments)
+                 setComments(data.data.comments)
+                //   console.log(data.data.comments)
+                //   console.log(data.data.comments.user)
             })       
             .catch(() => nav("/profile", {replace: true}));
 
@@ -85,6 +86,9 @@ export default function CardQuestion(props) {
         }
 
     }
+    function PricingPage(){
+        window.location.pathname = `404`;
+    }
 
 
     return (
@@ -106,9 +110,9 @@ export default function CardQuestion(props) {
                         {question.body}
                     </div>
                         <div style={{ marginTop: "-45px" }} class="d-flex justify-content-between mt-2 align-items-center">
-                            <div>
+                            <div style={{marginLeft:"15px"}}>
                             {dataprofile.membership_level_id === 1 && dataprofile.free_trails === 0 ?
-                                (<Link style={{ textDecoration: "none", color: "black" }} onClick={() => (alert("go to pricing page"))}>
+                                (<Link style={{ textDecoration: "none", color: "black" }} onClick={PricingPage}>
                                     {question.likes === 0 ? <FontAwesomeIcon icon={faThumbsUp} style={{ color: "black", marginRight: "6px", fontSize: "30px" }} /> : <FontAwesomeIcon icon={faThumbsUp} style={{ color: "blue", marginRight: "6px", fontSize: "30px" }} />
                                     }
                                     <span >
@@ -135,30 +139,28 @@ export default function CardQuestion(props) {
                                 )}
                             </div>
                             <div>
-                            {dataprofile.membership_level_id === 1 && dataprofile.free_trails === 0 ? (<Link style={{ textDecoration: "none", color: "black" }} onClick={() => (alert("go to pricing page"))}>
+                            {dataprofile.membership_level_id === 1 && dataprofile.free_trails === 0 ? (<Link style={{ textDecoration: "none", color: "black" }} onClick={PricingPage}>
                                 <FontAwesomeIcon icon={faComment} style={{ marginRight: "6px", color: "black", fontSize: "30px", marginTop:"3px"  }} />
                                 <span>Comment</span>
                             </Link>) : (<Link style={{ textDecoration: "none", color: "black" }} onClick={() => setModalShow(true)}>
                                 <FontAwesomeIcon icon={faComment} style={{ marginRight: "8px", color: "", fontSize: "30px" ,marginBottom:"-6px" }} />
                                 <span >Comment</span>
                             </Link>)}
-
                             </div>
-
-
-
                         </div>
                         
-                            <div class=" w-full mt-2 p-2" >
+                            <div class=" w-full mt-2 p-2">
                                 {comments.map((comment) => {
                                     return (
                                         <>
-                                            <div className="flex-grow-1 flex-shrink-1" key={comment.id}>
+                                            <div className="d-flex flex-grow-1 flex-shrink-1" key={comment.id} style={{marginLeft:"-5px" , marginTop:'15px'}}>
+                                            <img src={comment.user.thumbnail} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img>
+
                                                 <div style={{backgroundColor:'#eee', padding:"10px" , borderRadius:"10px"}}> 
                                                     <div className="d-flex  align-items-center" >
-                                                        <img src={avatar} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img>
+                                                        {/* <img src={avatar} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img> */}
                                                         <p className="mb-1 fw-bold">
-                                                        {comment.name}Ward
+                                                        {comment.user.name}
                                                             {/* <span className="small">- 2 hours ago</span> */}
                                                         </p>
                                                         <a href="#!">
@@ -166,7 +168,7 @@ export default function CardQuestion(props) {
                                                             {/* <span className="small" onClick={() => setModalShow(true)}> reply</span> */}
                                                         </a>
                                                     </div>
-                                                    <p className="small mb-0" style={{marginLeft:"50px"}}>
+                                                    <p className="small mb-0">
                                                         {comment.body}
                                                     </p>
                                                 </div>
@@ -209,7 +211,7 @@ export default function CardQuestion(props) {
                         <Modal.Footer>
 
                                 <div  class="d-flex justify-content-between mt-2 w-100">
-                                    <div>
+                                    <div style={{marginLeft:"10px"}}>
                                     <Link style={{ textDecoration: "none", color: "black" }} >
                                         {question.likes === 0 ? (<FontAwesomeIcon icon={faThumbsUp} style={{ color: "black", marginRight: "6px", fontSize: "30px" }}
                                             value={addLike}
@@ -234,15 +236,16 @@ export default function CardQuestion(props) {
                                 {comments.map((comment) => {
                                     return (
                                         <>
-                                            <div className="flex-grow-1 flex-shrink-1" key={comment.id}>
-                                                <div style={{backgroundColor:'#eee', padding:"10px" , borderRadius:"10px"}}>
-                                                <div className="d-flex  align-items-center" >
+                                            <div className="d-flex flex-grow-1 flex-shrink-1" key={comment.id} style={{marginLeft:"-20px", marginTop:'15px'}}>
+                                            <img src={comment.user.thumbnail} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img>
 
-                                                <img src={avatar} style={{width:"40px" , height:"40px", borderRadius:"50%", marginRight:"10px"}}></img>
+                                                <div style={{backgroundColor:'#eee', padding:"10px" , borderRadius:"10px"}}>
+                                                <div className="d-flex align-items-center" >
+
 
                                                     <div className="d-flex align-items-center">
                                                         <p className="mb-1 fw-bold">
-                                                        {comment.name}{" "}Ward
+                                                        {comment.user.name}
                                                             {/* <span className="small">- 2 hours ago</span> */}
                                                         </p>
                                                         <a href="#!">
@@ -251,7 +254,7 @@ export default function CardQuestion(props) {
                                                         </a>
                                                     </div>
                                                     </div>
-                                                    <p className="small mb-0" style={{marginLeft:"50px"}}>
+                                                    <p className="small mb-0" >
                                                         {comment.body}
                                                     </p>
                                                 </div>

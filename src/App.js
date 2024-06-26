@@ -46,10 +46,13 @@ import AboutUs from "./Pages/Website/aboutUs";
 // import GrowingTipsDetails from "./Pages/Website/growingtips/GrowingTipsDetails";
 import SoilType from "./Pages/Website/SoilType/SoilType";
 import SoilTypeDetails from "./Pages/Website/SoilType/SoilTypeDetails";
-import TipDetalis from "./Pages/Website/TipDetails";
 import GrowingTips from "./Pages/Website/GrowingTips";
+import Community from "./Pages/Website/community/community";
 // import GrowingTipsDetails from "./Pages/Website/growingtips/GrowingTipsDetails";
 // import GrowingTips from "./Pages/Website/growingtips/GrowingTips";
+
+import BlogDetails from './Pages/Website/Home/BlogDetails';
+import TipDetalis from "./Pages/Website/TipDetails";
 
 function App() {
   return (
@@ -58,6 +61,8 @@ function App() {
         {/* public Route */}
         {/* <Route path="/" element={<HomePage />}></Route> */}
         <Route path="/" element={<Home></Home>}></Route>
+        <Route index path='/home/:blogId' element={<BlogDetails />} />
+
         <Route element={<RequireBack></RequireBack>}>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
@@ -73,12 +78,12 @@ function App() {
           path="/plantdetection"
           element={<PlantDetection></PlantDetection>}
         ></Route>
-       
+        <Route path='/community' element={<Community/>} ></Route> 
           <Route path='/growingtips' element={<GrowingTips></GrowingTips>}></Route> 
 
            <Route path={`growing_tips/:tipId`} element={<TipDetalis></TipDetalis>}></Route>
-          {/* <Route path='/growingtips' element={<GrowingTips/>} />
-    <Route path='growingtips/:GrowingTipsId' element={<GrowingTipsDetails/>} /> */}
+           {/* <Route path='/growingtips' element={<GrowingTips/>} />
+    <Route path='growingtips/:GrowingTipsId' element={<GrowingTipsDetails/>} />  */}
 
         <Route path="/soiltype" element={<SoilType />} />
         <Route path="/soiltype/:soilTypeId" element={<SoilTypeDetails />} />
@@ -123,7 +128,7 @@ function App() {
           element={<PlantDetalis></PlantDetalis>}
         ></Route>
         <Route
-          path={`${DISEASES}/${DISEASE}/:diseaseId`}
+          path={`${DISEASES}/:diseaseId`}
           element={<PlantDiseases></PlantDiseases>}
         ></Route>
 

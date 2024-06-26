@@ -30,11 +30,13 @@ export default function Profile() {
         setfree_trails(dataprofile.data.user.free_trails)
         setQuestions(dataprofile.data.user.questions)
         // console.log(dataprofile.data.user.questions)
-        // console.log(dataprofile.data.user)
+        console.log(dataprofile.data.user)
 
       })            
   }, []);
-
+  function PricingPage(){
+    window.location.pathname = `404`;
+}
   return (
     <>
       <NavBar></NavBar>
@@ -52,10 +54,11 @@ export default function Profile() {
             <Link to="/editprofile" className="btn-newpost">
             <FontAwesomeIcon icon={faPenToSquare} />
             </Link>
-            <Link to={`/allchats/${dataprofile.id}`} className="btn-newpost">
-            <FontAwesomeIcon icon={faMessage} /></Link>
+            {/* <Link to={`/allchats/${dataprofile.id}`} className="btn-newpost">
+            <FontAwesomeIcon icon={faMessage} /></Link> */}
+
           { membership_level_id === 1 && free_trails === 0 ?
-          ( <Link  className="btn-newpost" onClick={() => (alert("You must be Basic , Premium or Enterprise membership level to access this feature."))}>
+          ( <Link  className="btn-newpost" onClick={PricingPage}>
           <FontAwesomeIcon icon={faPlus} />
         </Link> 
           )  :( <Link  className="btn-newpost" onClick={() => setModalShow(true)}>

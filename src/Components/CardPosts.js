@@ -1,23 +1,25 @@
 import { Link } from "react-router-dom";
-import "../Css/card.css";
 import { AllSUITABLEPLANTS, PLANT } from "../Api/Api";
+import "../Css/card.css";
+// import { AllSUITABLEPLANTS, PLANT } from "../Api/Api";
 import EastIcon from '@mui/icons-material/East';
 
-export default function CardSuitableP(props) {
-    const { suitablePlant ,showButton } = props;
+export default function CardPosts(props) {
+    const { post ,showButton } = props;
     return (       <>
-                <div className='box mt-5'>
-                    <img src={suitablePlant.image}  alt="img" className="img"/> 
+                <div className='box mt-5 d-block'>
+                    <img src={post.image}  alt="img" className="img"/> 
                     <div className="contentbox">
                         <h3 className="limitnumberh" style={{fontWeight:"bold"}}>
-                            {suitablePlant.name}
+                            {post.title}
                         </h3>
                       
-                        <p className="limitnumber">{suitablePlant["Planting Method"]}</p>
+                        <p className="limitnumbe">{post.slug}</p>
+                        <p className="limitnumbe">{post.body}</p>
                     </div>
                     {showButton && <div className="infoPlant">
                         
-                        <Link to={`/${AllSUITABLEPLANTS}/${PLANT}/${suitablePlant.id}`}>Read More</Link>  
+                        <Link to={`/${AllSUITABLEPLANTS}/${PLANT}/${post.id}`}>Read More</Link>  
                         <EastIcon className="icon"/>           
                         </div> }
                     

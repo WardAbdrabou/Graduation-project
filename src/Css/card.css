@@ -121,101 +121,6 @@
 }
 
 /* End Global Rule */
-/* start NavBar */
-.navbar {
-    width: 100%;
-    max-width: 100%;
-    background-color: #ecffe5;
-    font-weight: bold;
-
-    font-size: 20px;
-}
-
-/* .navbar img {
-    width: auto;
-    height: 50px !important;
-    /* margin: 3px 50px 3px 15px; */
-/* }  */
-
-/* .navbar .collapse a {
-    color: #212121 !important;
-    font-size: 18px;
-    margin-right: 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: .5px;
-
-} */
-
-/* .navbar .collapse a:hover {
-    color: #6F9A61 !important;
-    border-top: 2px solid #6F9A61;
-}
-
-.navbar .collapse .Register {
-    display: flex;
-    justify-content: center;
-    
-}
-
-
-.navbar .collapse .Register a {
-    color: #fff !important;
-    background-color: #6F9A61;
-    width: 120px;
-    border-radius: 21px;
-} */
-
-@media only screen and (max-width : 922px) {
-    .navbar .navbar-collapse {
-        width: 250px !important;
-        border: 1px solid #6F9A61;
-        background-color: #e5efe1;
-    }
-
-     .navbar .navbar-collapse a {
-        color: black !important;
-        border-bottom: 1px solid #e5efe1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3px;
-
-    }
-
-    .navbar .navbar-collapse a:hover {
-        border-top: none;
-        color: #6F9A61 !important;
-    }
-
-    .navbar .navbar-collapse .Register a {
-        margin-bottom: 10px;
-        text-decoration: none;
-        color: #fff;
-    }
-
-    .navbar .navbar-collapse .Register a:hover {
-        text-decoration: none;
-        color: #fff !important;
-        /* background-color: #fff;
-        text-decoration: none; */
-    }
-
-    .navbar .navbar-collapse .Register {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-    }
-     .navbar-light .navbar-toggler {
-        background-color: #fff !important;
-        border: 1px solid #6F9A61 !important; 
-       
-    }
-}
- 
-/* end NavBar */
 
 /* Start plant Detection */
 .sec2det{
@@ -242,13 +147,28 @@
     } 
 }
 .image-upload{
-    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 50%;
+    width: 260px;
     border: none;
+    padding: 0px 5px;
+    outline: none;
+    border: 1px solid var(--greenTrans-color);
+    border-radius: 10px;
+    transition: 0.3s;   
+    margin-left: 20px !important; 
+    height: 50px;
 }
 .btn-upload{
-    width: 100px;
+    width: fit-content;
+    height: 30px;
     background-color: #6F9A61;
     color: white;
+    padding: 4px;
+    font-size: 14px;
+    text-transform: capitalize
 }
 .btn-upload:hover{
     background-color: white;
@@ -312,14 +232,14 @@
     height: 200px;
 
 }
-.cards .box .content{
+.cards .box .contentbox{
     padding: 20px;
 }
-.cards .box .content h3{
+.cards .box .contentbox h3{
     margin: 0;
 }
 
-.cards .box .content p{
+.cards .box .contentbox p{
     margin:  10px 0 0 ;
     line-height: 1.5;
     color: #777;
@@ -338,11 +258,11 @@
     text-decoration: none;
 
 }
-.cards .box .infoPlant i{
+.cards .box .infoPlant .icon{
     color: var(--main-color);
 
 }
-.cards .box:hover .infoPlant i{
+.cards .box:hover .infoPlant .icon{
     animation: moving-arrow 0.6s linear infinite;
 }
 
@@ -520,7 +440,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-line-clamp: 1;
     line-clamp: 1;
     -webkit-box-orient: vertical;
     font-weight: bold;
@@ -530,7 +450,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-line-clamp: 2; 
     line-clamp: 2;
     -webkit-box-orient: vertical;
   }
@@ -538,32 +458,23 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-  /* .search::placeholder{
-    position: absolute;
-    left: 40px;
-    bottom: 13px;
-    cursor: none;
-  } */
-  /* .iconsearch:focus{
-   visibility: hidden !important;
-   display: none !important;
-   color: #6F9A61;
-    
-  } */
+ 
   /* Plant Detials And Diseases */
-  .plantDetDes{
-    font-size: 64px;
+
+.plantDetDes{
+    font-size: 45px;
     margin: 20px auto 10px;
     padding: 10px 10px;
     width: fit-content;
     position: relative;
+    color: #6F9A61 ;
   
-  }
-  .plantDetDessec{
+}
+.plantDetDessec{
     font-size: 36px;
     margin: 20px auto 30px;
     padding: 10px 10px;
@@ -608,24 +519,21 @@
     margin: 20px 5% 20px 50%;
 }
 .contact .contact-titlep{
-    text-align: center;
     font-size: 20px;
     display: flex;
-    flex-basis: 50%;
+    margin-left: 20px;
 }
-.contact .content{
+.contact .contentContact{
     display: flex;
     justify-content: space-between;
 }
 @media(max-width:767px){
-    .contact .content{
+    .contact .contentContact{
         flex-direction: column;
     }
 }
-/* .contact .content form{
-    flex-basis: 60%;
-  } */
-  .contact .content form .main-input{
+
+  .contact .contentContact form .main-input{
     padding: 20px ;
     display: block;
     border: 1px solid #ccc;
@@ -633,20 +541,20 @@
     width: 789px;
     height: 56px;
   }
-  .contact .content form .main-input:focus , textarea:focus{
+  .contact .contentContact form .main-input:focus , textarea:focus{
     border: 1px solid var(--main-color);
   }
-  .contact .content form textarea.main-input{
+  .contact .contentContact form textarea.main-input{
     height: 200px;
     outline: none;
   }
-  .contact .content .btn-contact{
+  .contact .contentContact .btn-contact{
     font-size: 16px; 
     width: 90px;
     height: 50px;
     
   }
- .contact .content .infoContact{
+ .contact .contentContact .infoContact{
     margin: 0 0 0 -5%;
     border-radius: 15px;
     /* flex-basis: 40%; */
@@ -654,7 +562,7 @@
 
 } 
   @media(max-width:767px){
-    .contact .content .infoContact{
+    .contact .contentContact .infoContact{
        display: none;
     }
     .headerContact{
@@ -676,18 +584,18 @@
         left: 0;
         transform: translate(-54%, 0);
     }
-    .contact .content form .main-input{
+    .contact .contentContact form .main-input{
         width: 500px;
         height: 40px;
     }
-    .contact .content .btn-contact{
+    .contact .contentContact .btn-contact{
         margin-left: 100px;
 
     }
    
   }
   @media(min-width:767px ) and (max-width : 992px){
-    .contact .content .infoContact{
+    .contact .contentContact .infoContact{
         display: none;
      }
    
@@ -709,11 +617,11 @@
         left: 0;
         transform: translate(-45%, 0);
     }
-    .contact .content form .main-input{
+    .contact .contentContact form .main-input{
         width: 700px;
         height: 40px;
     }
-    .contact .content .btn-contact{
+    .contact .contentContact .btn-contact{
         margin-left: 100px;
 
     }
@@ -847,10 +755,10 @@ z
     position: relative;
     text-align: center;
     z-index: 1;
-    /* background-image: url(../assests/membership\ image.png); */
-    background-color: #f5f6f8;
+    background-image: url(../assests/membership\ image.png);
+    /* background-color: #f5f6f8; */
     background-repeat: no-repeat;
-    height: 490px;
+    height: 500px;
     width: 325px;
     border-radius: 20px;
 
@@ -865,7 +773,6 @@ z
 }
 .pricing .price{
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 .pricing .price .amount{
